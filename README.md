@@ -1,11 +1,11 @@
 <div align="center">
 <h1>MoeSkin+</h1>
 <p>注意该皮肤制作完成于2022年，已完全过时，不再维护。</p>
-<img src="image/1746253469852.jpg" width="55%" alt="home" />
-<img src="image/1746253469819.jpg" width="55%" alt="home" />
-<img src="image/1746253469832.jpg" width="55%" alt="home" />
-<img src="image/1746253469826.jpg" width="55%" alt="home" />
-<img src="image/1746253469845.jpg" width="55%" alt="home" />
+<img src="image/1746253469852.jpg" width="60%" alt="home" />
+<img src="image/1746253469819.jpg" width="48%" alt="home" />
+<img src="image/1746253469832.jpg" width="48%" alt="home" />
+<img src="image/1746253469826.jpg" width="48%" alt="home" />
+<img src="image/1746253469845.jpg" width="48%" alt="home" />
 <img src="image/1746253469839.jpg" width="55%" alt="home" />
 </div>
 
@@ -36,8 +36,8 @@
 wfLoadSkin( 'MoeSkin' );
 $wgDefaultSkin = "MoeSkin";
 </pre>
-- 手动将MoeSkin.css里的内容加入到全站css里。
-- 其他可以参考同目录下的LocalSettings配置文件。
+- 手动将MoeSkin.css里的内容加入到全站css里
+- 其他可以参考同目录下的LocalSettings配置文件
 
 ## 迁移设计
 - 写皮肤帮助说明可参考：https://wiki.unitedearth.cc/%E5%B8%AE%E5%8A%A9:%E5%B8%AE%E5%8A%A9%E4%B8%AD%E5%BF%83
