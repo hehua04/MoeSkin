@@ -25,7 +25,7 @@
   - 在低于10寸的视图下搜索栏会隐藏以适配窄屏，您需要点击搜索按钮以调出
 - 主体显示区域大小更改为（约）1200px，为适合所有条目设计
 - 界面是分段从服务器获取的，并非先文字后图片，页脚为最后获取展示
-- 请尽量使用<gallery mode="packed">模式的画廊，该模式已适配现代化风格
+- 请尽量使用`<gallery mode="packed">`模式的画廊，该模式已适配现代化风格
 - 页顶编辑按钮为新版编辑器，右侧编辑按钮为旧版编辑器
 - 增加“/”快捷键为搜索
 - 使用全局根元素调色板设计界面，可以随意更改
@@ -33,8 +33,8 @@
 ## 安装&配置
 - 在LocalSettings.php里面加入：
 <pre>
-wfLoadSkin( 'MoeSkin' );
 $wgDefaultSkin = "MoeSkin";
+wfLoadSkin( 'MoeSkin' );
 </pre>
 - 手动将MoeSkin.css里的内容加入到全站css里
 - 其他可以参考同目录下的LocalSettings配置文件
@@ -46,7 +46,7 @@ $wgDefaultSkin = "MoeSkin";
 
 ## 使用注意
 - 本皮肤已自动适配移动端，请不要再使用MobileFrontend扩展，本皮肤并不适配此扩展
-- 右下角链接可前往 MoeSkin\templates\GlobalToolbar.mustache 更改
+- 右下角链接可前往`MoeSkin\templates\GlobalToolbar.mustache`更改
 - 移动端会同时加载公告，大家族模板等
 - 当前的黄色主题色，为配合背景颜色，如果更改，请同步更改版头和壁纸
 
@@ -151,8 +151,8 @@ html {
 如果你要变更皮肤名字，直接更改文件名即可，之后建议使用两次全文档替换（代码区分大小写）：
 <pre>
 例如要将名字替换为FestivalSkin：
-第一次：MoeSkin FestivalSkin
-第二次：moeskin festivalskin
+第一次：MoeSkin → FestivalSkin
+第二次：moeskin → festivalskin
 </pre>
 
 ## 作者与版权
