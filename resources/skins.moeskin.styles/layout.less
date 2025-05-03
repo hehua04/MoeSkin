@@ -1,0 +1,206 @@
+@width-breakpoint-desktop-wider: @width-breakpoint-desktop + @width-toc * 2;
+
+html {
+	grid-template-areas:
+		'header'
+		'content'
+		'footer';
+	scroll-padding-top: ~'calc( var( --height-header ) + 20px )'; // fixed header offset, supported by major browsers
+	overflow-y: scroll;
+}
+
+html,
+body {
+	min-height: 100vh;
+	padding: 0;
+	margin: 0;
+	color: var( --color-base );
+}
+
+body:before {
+	position: fixed;
+	content: '';
+	top: 0;
+	right: 0;
+	left: 0;
+	height: var( --height-header );
+	background: var( --color-surface-1 );
+	opacity: 87%;
+	pointer-events: none;
+}
+
+:focus {
+	outline-color: var( --color-primary );
+}
+
+.mw-body,
+.parsoid-body {
+	min-height: 87vh; // avoid footer being in the middle of the page
+	padding: 15px var( --padding-page ) 37px var( --padding-page );
+	margin-top: var( --height-header );
+	transition: background 0.2s ease;
+}
+
+.mw-body-header,
+.moeskin-body {
+	max-width: var( --width-layout );
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.mw-body-header {
+	position: relative;
+	display: flex;
+	align-items: flex-start;
+	padding-top: 0.8rem;
+	gap: @content-margin-top;
+	padding-bottom: 0.5rem;
+	margin-bottom: 1.3rem;
+	border-bottom: 0.3px dashed var( --border-color-base--darker );
+}
+
+.page-heading {
+	flex-grow: 1;
+}
+
+.firstHeading-container {
+	display: flex;
+	align-items: center;
+}
+
+.moeskin-body {
+	.mixin-clearfix();
+}
+
+.moeskin-animations-ready {
+	scroll-behavior: smooth;
+}
+
+.page-actions {
+	padding-top: 0.6rem;
+}
+
+#moeskin-global-sitenotice {
+	max-width: var( --width-layout );
+	height: 23px;
+	line-height: var( --line-height );
+	overflow: hidden;
+	text-overflow: ellipsis;
+	background-color: var( --color-surface-2 );
+	border-top: 1px solid var( --localnotice-color-moetheme );
+	border-bottom: 1px solid var( --localnotice-color-moetheme );
+	padding: 5px;
+	font-size: 90%;
+	margin: auto;
+	text-align: center;
+}
+
+.ve-loading .ve-init-mw-desktopArticleTarget-targetContainer > :not(.ve-init-mw-desktopArticleTarget-toolbarPlaceholder):not(.ve-init-mw-desktopArticleTarget), .ve-loading .ve-init-mw-desktopArticleTarget-originalContent, .ve-activated:not(.ve-loading) .ve-init-mw-desktopArticleTarget-uneditableContent {
+	pointer-events: auto !important;
+	opacity: 1 !important;
+}
+
+#moeskin-global-sitenotice.ve-init-mw-desktopArticleTarget-uneditableContent {
+	display: none;
+}
+
+#pt-notifications {
+	display: block;
+}
+
+@media ( max-width: @width-breakpoint-mobile ) {
+	.mw-numlink,.mw-special-Newimages .mw-specialpage-summary {
+		display: none !important;
+	}
+}
+
+@media ( max-width: @width-breakpoint-tablet ) {
+	.mw-body,
+	.parsoid-body {
+		overflow-x: hidden; // fallback if clip is not supported
+		overflow-x: clip; // avoid breaking layout in smaller screen sizes
+	}
+
+	table {
+		display: block;
+	}
+
+	.skin-moeskin:not( .action-view.ns-2, .ns-special ),
+	.mw-special-Movepage,
+	.mw-special-Whatlinkshere,
+	.mw-special-Recentchangeslinked,
+	.mw-special-Undelete,
+	.mw-special-FlowThreadControl {
+		.mw-body-header {
+			flex-direction: column;
+		}
+
+		.page-heading {
+			width: 100%;
+			padding-bottom: 0.5rem;
+			margin-bottom: -1rem;
+			border-bottom: 0.3px dashed var( --color-surface-4 );
+		}
+	}
+}
+
+@media ( hover: none ) {
+	a,
+	button,
+	label {
+		// Remove the 300ms delay in click event (T118509)
+		touch-action: manipulation;
+	}
+}
+
+@media ( min-width: @width-breakpoint-tablet ) {
+	.mw-body {
+		position: -webkit-sticky;
+		position: sticky;
+		padding: 30px 57px 30px 45px;
+		margin: 63px 35px 45px 35px;
+		border-radius: var( --border-radius--large );
+		opacity: 99%;
+		background: var( --color-surface-0 );
+		box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.06);
+	}
+
+	div.tleft,
+	figure.mw-halign-left,
+	div.floatleft,
+	table.floatleft {
+		/* @noflip */
+		margin-right: 1.4rem;
+		/* @noflip */
+		clear: left;
+		/* @noflip */
+		float: left;
+	}
+
+	div.tright,
+	figure.mw-halign-right,
+	figure.mw-default-size,
+	div.floatright,
+	table.floatright {
+		/* @noflip */
+		margin-left: 1.4rem;
+		/* @noflip */
+		clear: right;
+		/* @noflip */
+		float: right;
+	}
+}
+
+@media ( min-width: @width-breakpoint-desktop-wide ) {
+	.mw-body {
+		margin-right: ~'max( var( --margin-layout ) )';
+		margin-left: ~'max( var( --margin-layout ) )';
+		background: var( --color-surface-0 );
+	}
+}
+
+@media ( min-width: @width-breakpoint-desktop-extrawide ) {
+	.mw-body {
+		padding-top: 40px;
+	}
+}

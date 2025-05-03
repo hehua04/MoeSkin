@@ -1,0 +1,70 @@
+/*
+ * MoeSkin
+ *
+ * SkinStyles for helper classes used across special pages and actions
+ * Module: mediawiki.interface.helpers.styles
+ *
+*/
+
+@import '../../resources/mixins.less';
+
+.unpatrolled {
+	color: var( --color-text-error );
+}
+
+.newpage,
+.minoredit,
+.botedit {
+	font-size: 85%;
+}
+
+.autocomment,
+.autocomment a,
+.autocomment a:visited {
+	color: var( --color-base--subtle );
+}
+
+.mw-tag-markers {
+	margin-left: var( --space-xxs );
+
+	.mw-tag-marker {
+		padding: 2px 8px;
+		border-radius: var( --border-radius--large );
+		background-color: var( --color-surface-2 );
+		font-size: 0.825rem;
+
+		&::after {
+			display: none;
+		}
+	}
+}
+
+li span.deleted,
+span.history-deleted {
+	color: var( --color-base--subtle );
+}
+
+span.mw-history-suppressed {
+	color: var( --color-base );
+}
+
+.mw-logevent-loglines, .mw-undelete-revlist {
+	.moeskin-list();
+
+	&:first-of-type {
+		border-top: 1px solid var( --border-color-base );
+	}
+}
+
+.mw-logevent-loglines li, .mw-undelete-revlist li {
+	.moeskin-list-li();
+}
+
+// Add icons
+.mw-tag-markers a:first-child::before {
+	content: "🏷️"
+}
+
+a.mw-changeslist-date::before, .mw-changeslist h4::before {
+	content: "📅 "
+}

@@ -1,0 +1,219 @@
+html {
+	// Make ToC width accessible as CSS var
+	--width-toc: @width-toc;
+}
+
+.toc {
+	z-index: 3; // Lower than header
+	pointer-events: none;
+	right: 10px;
+	position: fixed;
+	top: 5rem;
+	right: var( --padding-page );
+	width: 100%;
+	max-width: ~'calc( var( --width-toc ) - var( --padding-page ) * 2 )';
+	color: var( --color-base--subtle );
+	font-size: 0.875rem;
+
+	&::-webkit-scrollbar {
+		width: 0; // Hide bar on toc
+	}
+
+	&title {
+		h2 {
+			margin: 0;
+			color: var( --color-base--subtle );
+			font-size: inherit;
+			font-weight: normal;
+			letter-spacing: 0.75px;
+		}
+	}
+
+	&toggle {
+		&span {
+			display: block;
+			font-size: 0;
+		}
+
+		&label {
+			position: fixed;
+			right: 0;
+			bottom: 1rem;
+			width: 2.5rem;
+			height: 2.5rem;
+			cursor: pointer;
+			border-radius: var( --border-radius--medium ) 0 0 var( --border-radius--medium );
+			pointer-events: auto;
+			.moeskin-card( false );
+
+			&:hover {
+				background-color: var( --color-surface-3 );
+
+				&:before {
+					opacity: var( --opacity-icon-base--hover );
+				}
+			}
+
+			&:active {
+				background-color: var( --color-surface-1 );
+
+				&:before {
+					opacity: var( --opacity-icon-base--active );
+				}
+			}
+
+			&:before {
+				.resource-loader-icon;
+				display: block;
+				background-size: 1rem;
+				opacity: var( --opacity-icon-base );
+			}
+		}
+
+		// By default .toccheckbox is checked on page load
+		// This is needed to prevent ToC popping up on mobile
+
+		&checkbox:not( :checked ) {
+			~ .toctitle h2,
+			~ ul {
+				transform: translateX( 120% );
+			}
+		}
+
+		&checkbox:checked ~ ul {
+			display: block !important; // Force display
+		}
+	}
+
+	&title h2 {
+		position: absolute;
+		z-index: 3;
+		width: ~'calc( 100% - var( --padding-page ) * 2 )';
+		padding: 1rem var( --padding-page );
+
+		&:before {
+			position: absolute;
+			z-index: -1;
+			top: 0;
+			right: 0;
+			left: 0;
+			height: 100%;
+			border-radius: var( --border-radius--medium );
+			background: var( --color-surface-1 );
+			content: '';
+			-webkit-mask-image: linear-gradient( 180deg, #000, transparent );
+			mask-image: linear-gradient( 180deg, #000, transparent );
+		}
+	}
+
+	li {
+		border-left: 2px solid var( --border-color-base--darker );
+
+		&.toclevel-2,
+		&.toclevel-3,
+		&.toclevel-4,
+		&.toclevel-5,
+		&.toclevel-6 {
+			margin-left: 0.75rem;
+		}
+	}
+
+	.toc__item--active {
+		border-color: var( --color-moetheme );
+		color: var( --color-moetheme );
+
+		> a,
+		> a:hover,
+		> a:active {
+			color: inherit;
+		}
+	}
+
+	a {
+		display: block;
+		padding: 0.25rem 0 0.25rem 0.75rem;
+		color: var( --color-base--emphasized );
+
+		&:hover {
+			background-color: var( --background-color-quiet--active );
+		}
+
+		&:active {
+			color: var( --color-moetheme--active );
+			background-color: var( --background-color-quiet--active );
+		}
+	}
+
+	&number {
+		display: none;
+		margin-right: 0.25rem;
+		opacity: 0.7;
+	}
+
+	&text {
+		font-weight: 500;
+	}
+
+	ul {
+		list-style: none;
+	}
+
+	> ul {
+		display: block !important;
+		position: relative;
+		z-index: 2;
+		overflow: visible auto;
+		max-height: ~'calc( 91vh - var( --height-header ) * 3 )';
+		padding-right: 0.75rem;
+		margin: 0;
+		font-weight: 450;
+		overscroll-behavior: contain;
+		pointer-events: auto;
+		padding: 2.6rem var( --padding-page ) 1rem var( --padding-page ); // hardcoded for now
+		border-radius: var( --border-radius--medium );
+		.moeskin-card( false );
+
+		ul {
+			margin: 0;
+		}
+	}
+
+	&togglelabel,
+	&title h2,
+	> ul {
+		opacity: 1;
+		visibility: visible;
+		transition: var( --transition-hover );
+		transition-property: transform;
+	}
+}
+
+.skin-moeskin-dark {
+	.toc {
+		&togglelabel {
+			&:before {
+				filter: invert( 1 ) hue-rotate( 180deg );
+			}
+		}
+	}
+}
+
+
+@media ( max-width: @width-breakpoint-tablet ) {
+	.toc {
+		right: 0;
+		top: auto;
+		bottom: -3px;
+
+		> ul {
+			max-height: 60vh;
+			border-radius: var( --border-radius--medium ) 0 0 0;
+		}
+	}
+}
+
+@media ( min-width: @width-breakpoint-tablet ) {
+	.toctogglelabel {
+		display: none;
+	}
+}

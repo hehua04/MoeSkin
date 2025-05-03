@@ -1,0 +1,37 @@
+/*
+ * MoeSkin
+ *
+ * SkinStyles for Extension:VisualEditor
+ * Module: ext.visualEditor.diffing
+ *
+*/
+
+/* ve.ui.DiffElement.css */
+.ve-ui-diffElement-hasDescriptions .ve-ui-diffElement-content {
+	border-right-color: var( --border-color-base );
+}
+
+.ve-ui-diffElement-attributeChange {
+	color: var( --color-base--subtle );
+}
+
+.ve-ui-diffElement-no-changes {
+	color: var( --color-base--subtle );
+}
+
+.ve-ui-diffElement-spacer {
+	color: var( --color-base--subtle );
+}
+
+@media ( max-width: 820px /*@width-breakpoint-tablet*/ ) {
+	.ve-ui-diffElement-hasDescriptions .ve-ui-diffElement-content {
+		margin-right: 0;
+		padding-right: 0;
+		border-right: 0;
+		overflow-x: inherit;
+	}
+
+	.ve-ui-diffElement-attributeChange.oo-ui-labelElement .oo-ui-labelElement-label {
+		background: #b6d4fb;
+	}
+}

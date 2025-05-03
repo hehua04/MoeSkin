@@ -1,0 +1,32 @@
+/*
+ * MoeSkin
+ *
+ * SkinStyles for Special:ListFiles
+ * Module: mediawiki.pager.tablePager
+ *
+ * Note: All styles are supplied as mw-datatable is from legacy.less in REL1_35,
+ * which is not loaded by MoeSkin. The style is included in the above module since REL1_36.
+*/
+
+.mw-datatable {
+	border: 1px solid var( --border-color-base );
+	border-collapse: collapse;
+
+	td,
+	th {
+		padding: 0.2em 0.4em;
+		border: 1px solid var( --border-color-base );
+	}
+
+	th {
+		background-color: var( --color-surface-2 );
+	}
+
+	td {
+		background-color: var( --color-surface-1 );
+	}
+
+	tr:hover td {
+		background-color: var( --color-surface-2 );
+	}
+}

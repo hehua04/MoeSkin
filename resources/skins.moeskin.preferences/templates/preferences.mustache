@@ -1,0 +1,51 @@
+{{!
+	string msg-preferences
+	string msg-theme-label
+	string msg-prefs-moeskin-theme-option-auto
+	string msg-prefs-moeskin-theme-option-light
+	string msg-prefs-moeskin-theme-option-dark
+	string msg-prefs-moeskin-fontsize-label
+	string msg-prefs-moeskin-resetbutton-label
+}}
+
+<aside id="moeskin-pref-panel" class="moeskin-pref-panel">
+	<header id="moeskin-pref-header"><a href="/index.php?title=Special:Preferences">{{msg-preferences}} ▶</a></header>
+	<form id="moeskin-pref-form">
+		{{! Theme }}
+		<fieldset class="moeskin-pref-item" id ="moeskin-pref-theme">
+			<label for="moeskin-pref-theme" class="moeskin-pref-item__label"></label>
+			<fieldset>
+				<input id="moeskin-pref-theme__input__light" name="moeskin-pref-theme" type="radio" value="light">
+				<label for="moeskin-pref-theme__input__light" id="moeskin-pref-theme-option-light" class="moeskin-pref-theme-option"></label>
+				<input id="moeskin-pref-theme__input__dark" name="moeskin-pref-theme" type="radio" value="dark">
+				<label for="moeskin-pref-theme__input__dark" id="moeskin-pref-theme-option-dark" class="moeskin-pref-theme-option"></label>
+				<input id="moeskin-pref-theme__input__auto" name="moeskin-pref-theme" type="radio" value="auto">
+				<label for="moeskin-pref-theme__input__auto" id="moeskin-pref-theme-option-auto" class="moeskin-pref-theme-option"></label>
+			</fieldset>
+		</fieldset>
+		{{! Font size }}
+		<fieldset class="moeskin-pref-item" id="moeskin-pref-fontsize">
+			<label for="moeskin-pref-fontsize" class="moeskin-pref-item__label">
+				<span class="moeskin-pref-item__title">{{msg-prefs-moeskin-fontsize-label}}</span>
+				<span class="moeskin-pref-item__value" id="moeskin-pref-fontsize__value"></span>
+			</label>
+			<input id="moeskin-pref-fontsize__input" name="moeskin-pref-fontsize" type="range" max="5" list="moeskin-pref-fontsize__tickmarks">
+			<datalist id="moeskin-pref-fontsize__tickmarks" class="moeskin-pref__tickmarks">
+				<option value="0" label="小"></option>
+				<option value="1"></option>
+				<option value="2"></option>
+				<option value="3"></option>
+				<option value="4"></option>
+				<option value="5" label="大"></option>
+			</datalist>
+		</fieldset>
+<fieldset class="moeskin-pref-item" id="moeskin-pref-fontsize">
+			<label for="moeskin-pref-fontsize" class="moeskin-pref-item__label">
+				<span class="moeskin-pref-item__title">-</span>
+				<span class="moeskin-pref-item__title">{{msg-prefs-moeskin-more-label}}</span>
+				<span class="moeskin-pref-item__title">-</span>
+			</label>
+		</fieldset>
+	</form>
+	<button id="moeskin-pref-resetbutton">{{msg-prefs-moeskin-resetbutton-label}}</button>
+</aside>

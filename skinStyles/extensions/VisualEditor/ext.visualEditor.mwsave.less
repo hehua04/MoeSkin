@@ -1,0 +1,100 @@
+/*
+ * MoeSkin
+ *
+ * SkinStyles for Extension:VisualEditor
+ * Module: ext.visualEditor.mwsave
+ *
+*/
+
+@import '../../../resources/variables.less';
+
+.ve-ui-mwSaveDialog {
+	&-preview .mw-body {
+		box-shadow: none;
+		border-radius: 0;
+		max-width: var( --width-layout );
+		margin-right: auto !important;
+		margin-left: auto !important;
+		font-size: 110%;
+		outline: 1px solid var( --border-color-base );
+	}
+
+	h2 {
+		margin-top: 2rem;
+		margin-left: 0.2rem;
+	}
+
+	p {
+		margin-top: @content-margin-top;
+		margin-bottom: @content-margin-top;
+		overflow-wrap: break-word;
+	}
+
+	ul {
+		margin: 0.8rem 0 0 1.1rem;
+
+		ul {
+			margin: 0 0 0 @content-margin-top * 2;
+		}
+	}
+
+	ol {
+		margin: @content-margin-top 0 0 @content-margin-top * 2;
+
+		ol {
+			margin: 0 0 0 @content-margin-top * 2;
+		}
+	}
+
+	img {
+		vertical-align: middle;
+		border-radius: var( --border-radius--small );
+	}
+
+	a.image {
+		display: inline-block;
+		overflow: hidden;
+		vertical-align: top; // get rid of that weird bottom gap from inline block
+
+		& > img {
+			transition: opacity 200ms ease;
+		}
+
+		&:hover:not( .lazy ):not( .new ) {
+			img {
+				opacity: 90%;
+			}
+		}
+	}
+
+	&-summary {
+		background-color: transparent;
+	}
+
+	&-options {
+		border: 1px solid var( --border-color-base );
+		border-top: 0;
+		background-color: var( --color-surface-2 );
+	}
+
+	&--editSummary-count {
+		border-left-color: var( --border-color-base );
+		border-color: var( --border-color-base );
+	}
+
+	&-license {
+		color: var( --color-base--subtle );
+		font-size: 0.8125rem;
+	}
+
+	// Preview and review change panels
+	&-savePanel {
+		~ .oo-ui-panelLayout {
+			background-color: var( --color-surface-0 );
+		}
+	}
+}
+.ve-ui-mwSaveDialog-preview.oo-ui-layout.oo-ui-panelLayout.oo-ui-panelLayout-padded > .mw-summary-preview {
+	outline: 1px solid var( --border-color-base );
+	padding: 10px;
+}

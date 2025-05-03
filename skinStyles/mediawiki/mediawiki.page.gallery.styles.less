@@ -1,0 +1,79 @@
+/*
+ * MoeSkin - Gallery Styles
+*/
+
+// Sync with caption styles
+ul.gallery {
+	padding: 0;
+	margin: 0.5rem 0 !important;
+}
+
+ul.mw-gallery-packed,
+ul.mw-gallery-packed-hover,
+ul.mw-gallery-packed-overlay {
+	margin: 0.5rem 0 0 -0.65rem !important;
+}
+
+div.gallerytext {
+	color: var( --color-base--subtle );
+	font-size: 0.8125rem;
+	font-style: italic;
+
+	p {
+		margin: 0.4rem 0; // reset default style
+	}
+}
+
+ul.mw-gallery-packed-hover div.gallerytext,
+ul.mw-gallery-packed-overlay div.gallerytext {
+	color: rgba(255,255,255,0.75);
+}
+
+ul.mw-gallery-packed-hover li.gallerybox:hover div.gallerytextwrapper,
+ul.mw-gallery-packed-overlay li.gallerybox div.gallerytextwrapper,
+ul.mw-gallery-packed-hover li.gallerybox.mw-gallery-focused div.gallerytextwrapper {
+	border-bottom-left-radius: var( --border-radius--small );
+	border-bottom-right-radius: var( --border-radius--small );
+	padding-top: 5px;
+	padding-bottom: 0;
+	background: transparent;
+	background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1));
+}
+
+/* Slideshow */
+ul.gallery.mw-gallery-slideshow {
+	.gallerybox {
+		&.slideshow-current {
+			background: var( --color-surface-2 );
+		}
+	}
+}
+
+.mw-special-Newimages {
+	ul.gallery {
+		padding: 0;
+		margin: 0.75rem 0 !important;
+	}
+
+	ul.mw-gallery-packed-hover li.gallerybox:hover div.gallerytextwrapper,
+	ul.mw-gallery-packed-overlay li.gallerybox div.gallerytextwrapper,
+	ul.mw-gallery-packed-hover li.gallerybox.mw-gallery-focused div.gallerytextwrapper {
+		padding-top: 10px;
+		max-height: 21%;
+	}
+
+	ul.mw-gallery-packed-hover li.gallerybox:hover div.gallerytextwrapper:hover, 
+	ul.mw-gallery-packed-overlay li.gallerybox div.gallerytextwrapper:hover, 
+	ul.mw-gallery-packed-hover li.gallerybox.mw-gallery-focused div.gallerytextwrapper:hover {
+		max-height: none;
+	}
+}
+
+@media screen {
+	li.gallerybox div.thumb {
+		overflow: hidden; // quick hack for rounded corner
+		border-color: transparent;
+		border-radius: var( --border-radius--small );
+		background-color: var( --color-surface-2 ) !important;
+	}
+}

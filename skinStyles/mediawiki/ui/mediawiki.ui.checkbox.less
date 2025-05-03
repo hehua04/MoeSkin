@@ -1,0 +1,66 @@
+/*
+ * MoeSkin
+ *
+ * SkinStyles for MediaWiki UI
+ * Module: mediawiki.ui.checkbox
+ *
+*/
+
+.mw-ui-checkbox {
+	[ type='checkbox' ] {
+		& + label::before {
+			border-color: var( --border-color-base--darker );
+			border-radius: var( --border-radius--small );
+			// Show background when hovered
+			background-color: transparent;
+		}
+
+		&:enabled {
+			&:focus + label::before {
+				border-color: var( --color-primary );
+				background-color: var( --color-surface-0 );
+				box-shadow: none;
+			}
+
+			&:hover + label::before {
+				border-color: var( --color-primary--hover );
+				background-color: var( --color-surface-0 );
+			}
+
+			&:active + label::before {
+				border-color: var( --color-primary--active );
+				background-color: var( --color-primary--active );
+				box-shadow: none;
+			}
+
+			&:checked {
+				& + label::before {
+					border-color: var( --color-primary );
+					background-color: var( --color-primary );
+				}
+
+				&:focus + label::before {
+					border-color: var( --color-primary );
+					background-color: var( --color-primary );
+					box-shadow: none;
+				}
+
+				&:hover + label::before {
+					border-color: var( --color-primary--hover );
+					background-color: var( --color-primary--hover );
+				}
+
+				&:active + label::before {
+					border-color: var( --color-primary--active );
+					background-color: var( --color-primary--active );
+				}
+			}
+		}
+
+		&:disabled + label::before {
+			border-color: var( --color-surface-4 );
+			background-color: var( --color-surface-4 );
+		}
+	}
+}
+

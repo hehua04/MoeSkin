@@ -1,0 +1,110 @@
+/*
+ * MoeSkin
+ *
+ * SkinStyles for Extension:Echo
+ * Module: ext.echo.styles.badge
+ *
+*/
+
+.mw-echo-notifications-badge {
+	#pt-notifications-alert &,
+	#pt-notifications-notice & {
+		top: 0;
+		width: var( --size-button--header );
+		height: var( --size-button--header );
+		box-sizing: content-box;
+		border-radius: var( --border-radius--small );
+		margin: 0;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: var( --size-icon--header );
+		opacity: var( --opacity-icon-base );
+
+		&:hover {
+			opacity: var( --opacity-icon-base--hover );
+		}
+
+		&:active {
+			opacity: var( --opacity-icon-base--active );
+		}
+
+		&:focus {
+			background-color: var( --background-color-moetheme--active );
+			opacity: var( --opacity-icon-base--active );
+			box-shadow: none;
+
+			&:after {
+				border-color: var( --color-destructive );
+			}
+		}
+
+		&:after {
+			top: 0;
+			border-color: var( --color-destructive );
+			border-radius: 100px;
+			background-color: var( --color-destructive );
+			font-size: 0.65rem;
+		}
+
+		&-dimmed {
+			opacity: var( --opacity-icon-base--disabled );
+		}
+
+		&.mw-echo-notifications-badge-all-read {
+			opacity: var( --opacity-icon-base );
+
+			&:hover {
+				opacity: var( --opacity-icon-base--hover );
+			}
+
+			&:active {
+				opacity: var( --opacity-icon-base--active );
+			}
+		}
+	}
+
+	&.oo-ui-flaggedElement-unseen,
+	&.mw-echo-unseen-notifications {
+		#pt-notifications-alert &:after {
+			background-color: var( --color-destructive );
+		}
+
+		#pt-notifications-notice &:after {
+			background-color: var( --color-destructive );
+		}
+	}
+}
+
+// Add quiet background hover states
+#pt-notifications-alert,
+#pt-notifications-notice {
+	z-index: 1; // fix background clipping
+	border-radius: var( --border-radius--small );
+
+	&:hover {
+		background-color: var( --background-color-quiet--hover );
+	}
+
+	&:active {
+		background-color: var( --background-color-quiet--active );
+	}
+}
+
+#pt-notifications-alert {
+	border-right: 1px solid var( --border-color-base );
+}
+
+// Dark mode icon
+.skin-moeskin-dark {
+	#pt-notifications-alert,
+	#pt-notifications-notice {
+		.mw-echo-notifications-badge {
+			filter: invert( 1 ) hue-rotate( 180deg );
+
+			// Re-invert indicator color
+			&:after {
+				filter: invert( 1 ) hue-rotate( 180deg );
+			}
+		}
+	}
+}

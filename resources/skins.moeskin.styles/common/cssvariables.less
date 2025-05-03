@@ -1,0 +1,161 @@
+/*
+ * MoeSkin - CSS variables
+*/
+
+@import '../../variables.less';
+
+/**
+ * Base theme
+*/
+:root {
+	--background-color-overlay: @background-color-overlay;
+	--background-color-overlay--lighter: @background-color-overlay--lighter;
+
+	--background-color-framed: @background-color-framed;
+	--background-color-framed--hover: @background-color-framed--hover;
+	--background-color-framed--active: @background-color-framed--active;
+	--background-color-input: @background-color-input;
+	--background-color-icon: @background-color-icon;
+	--background-color-icon--hover: @background-color-icon--hover;
+	--background-color-icon--active: @background-color-icon--active;
+	--background-color-quiet--hover: @background-color-quiet--hover;
+	--background-color-quiet--active: @background-color-quiet--active;
+
+	--background-color-destructive: @background-color-destructive;
+	--background-color-warning: @background-color-warning;
+	--background-color-success: @background-color-success;
+
+	/* Foreground Colors */
+	--color-base: @color-base;
+	--color-base--emphasized: @color-base--emphasized;
+	--color-base--subtle: @color-base--subtle;
+
+	--color-destructive: @color-destructive;
+	--color-destructive--hover: @color-destructive--hover;
+	--color-destructive--active: @color-destructive--active;
+
+	--color-warning: @color-warning;
+	--color-success: @color-success;
+
+	--color-text-error: @color-text-error;
+	--color-text-warning: @color-text-warning;
+	--color-text-success: @color-text-success;
+
+	--color-link-new: @color-link-new;
+	--color-link-new--hover: @color-link-new--hover;
+	--color-link-new--active: @color-link-new--active;
+
+	--color-syntax-red: @color-syntax-red;
+	--color-syntax-orange: @color-syntax-orange;
+	--color-syntax-yellow: @color-syntax-yellow;
+	--color-syntax-green: @color-syntax-green;
+	--color-syntax-cyan: @color-syntax-cyan;
+	--color-syntax-blue: @color-syntax-blue;
+	--color-syntax-paleblue: @color-syntax-paleblue;
+	--color-syntax-purple: @color-syntax-purple;
+	--color-syntax-brown: @color-syntax-brown;
+	--color-syntax-pink: @color-syntax-pink;
+	--color-syntax-violet: @color-syntax-violet;
+	--color-syntax-grey: @color-syntax-grey;
+
+	/* Opacity */
+	--opacity-base--disabled: @opacity-base--disabled;
+	--opacity-icon-base: @opacity-icon-base;
+	--opacity-icon-base--hover: @opacity-icon-base--hover;
+	--opacity-icon-base--active: @opacity-icon-base--active;
+
+	/* Size */
+	--size-icon: @size-icon;
+
+	/* Border Colors */
+	--border-color-base: @border-color-base;
+	--border-color-base--lighter: @border-color-base--lighter;
+	--border-color-base--darker: @border-color-base--darker;
+	--border-color-input: @border-color-input;
+	--border-color-input--hover: @border-color-input--hover;
+
+	/* Border radius */
+	--border-radius--small: @border-radius--small;
+	--border-radius--medium: @border-radius--medium;
+	--border-radius--large: @border-radius--large;
+
+	/* Fonts */
+	--font-family-base: @fonts;
+	--font-family-serif: @fonts-serif;
+	--font-family-monospace: @fonts-monospace;
+
+	/* Transitions */
+	--transition-menu: @transition-menu;
+	--transition-hover: @transition-hover;
+}
+
+html {
+	/* Size */
+	--height-header: @height-header;
+	--width-layout: @width-layout;
+	--line-height: @line-height;
+
+	/* Margin */
+	--margin-layout: ~'calc( ( 92vw - var( --width-layout ) ) / 2 )';
+
+	/* Padding */
+	--padding-page: @padding-page;
+	--padding-page--negative: ~'calc( var( --padding-page) * -1 )';
+}
+
+/**
+ * Dark theme
+*/
+:root.skin-moeskin-dark {
+	--background-color-overlay: @dark-background-color-overlay;
+	--background-color-overlay--lighter: @dark-background-color-overlay--lighter;
+
+	--background-color-framed: @dark-background-color-framed;
+	--background-color-framed--hover: @dark-background-color-framed--hover;
+	--background-color-framed--active: @dark-background-color-framed--active;
+	--background-color-input: @dark-background-color-input;
+	--background-color-icon: @dark-background-color-icon;
+	--background-color-icon--hover: @dark-background-color-icon--hover;
+	--background-color-icon--active: @dark-background-color-icon--active;
+	--background-color-quiet--hover: @dark-background-color-quiet--hover;
+	--background-color-quiet--active: @dark-background-color-quiet--active;
+
+	--background-color-destructive: @dark-background-color-destructive;
+	--background-color-warning: @dark-background-color-warning;
+	--background-color-success: @dark-background-color-success;
+
+	/* Foreground Colors */
+	--color-base: @dark-color-base;
+	--color-base--emphasized: @dark-color-base--emphasized;
+	--color-base--subtle: @dark-color-base--subtle;
+
+	--color-text-error: @dark-color-text-error;
+	--color-text-warning: @dark-color-text-warning;
+	--color-text-success: @dark-color-text-success;
+
+	--color-link-new: @dark-color-link-new;
+	--color-link-new--hover: @dark-color-link-new--hover;
+	--color-link-new--active: @dark-color-link-new--active;
+
+	--color-syntax-red: @color-syntax-red-dark;
+	--color-syntax-orange: @color-syntax-orange-dark;
+	--color-syntax-yellow: @color-syntax-yellow-dark;
+	--color-syntax-green: @color-syntax-green-dark;
+	--color-syntax-cyan: @color-syntax-cyan-dark;
+	--color-syntax-blue: @color-syntax-blue-dark;
+	--color-syntax-paleblue: @color-syntax-paleblue-dark;
+	--color-syntax-purple: @color-syntax-purple-dark;
+	--color-syntax-brown: @color-syntax-brown-dark;
+	--color-syntax-pink: @color-syntax-pink-dark;
+	--color-syntax-violet: @color-syntax-violet-dark;
+
+	/* Opacity */
+	--opacity-icon-base--active: @dark-opacity-icon-base--active;
+
+	/* Border Colors */
+	--border-color-base: @dark-border-color-base;
+	--border-color-base--lighter: @dark-border-color-base--lighter;
+	--border-color-base--darker: @dark-border-color-base--darker;
+	--border-color-input: @dark-border-color-input;
+	--border-color-input--hover: @dark-border-color-input--hover;
+}

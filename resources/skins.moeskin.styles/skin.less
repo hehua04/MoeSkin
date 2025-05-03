@@ -1,0 +1,58 @@
+// MoeSkin main styles
+
+@import '../variables.less';
+@import '../mixins.less';
+@import 'common/typography.less';
+
+@media screen {
+	@import 'common/theme.less';
+	@import 'common/cssvariables.less';
+	@import 'layout.less';
+	@import 'common/common.less';
+	@import 'common/content.less';
+	@import 'common/thumbnail.less';
+	@import 'common/scrollbar.less';
+	@import 'common/hacks.less';
+	@import 'common/wikitable.less';
+	@import 'common/reducemotion.less';
+	@import 'common/loading.less';
+	@import 'common/maomao.less';
+
+	// Components
+	@import 'components/Header.less';
+	@import 'components/Drawer.less';
+	@import 'components/Drawer__button.less';
+	@import 'components/Sections.less';
+	@import 'components/Siteinfo.less';
+	@import 'components/Sitestats.less';
+	@import 'components/Personalmenu.less';
+	@import 'components/Avatar.less';
+	@import 'components/TableOfContents.less';
+	@import 'components/Globaltoolbar.less';
+	@import 'components/Search.less';
+	@import 'components/Search__button.less';
+	@import 'components/Pagetools.less';
+	@import 'components/Menu.less';
+	@import 'components/ContainerTools.less';
+	@import 'components/Catlinks.less';
+	@import 'components/Footer.less';
+}
+
+@media print {
+	@import 'common/print.less';
+}
+
+@keyframes fade-in {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+
+@keyframes fade-out {
+	from { opacity: 1; }
+	to { opacity: 0; }
+}
+
+@keyframes dark-fade-in {
+	from { opacity: 0; }
+	to { opacity: 0.95; }
+}

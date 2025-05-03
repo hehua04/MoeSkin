@@ -1,0 +1,203 @@
+@import '../variables.less';
+@import '../mixins.less';
+
+.moeskin-pref {
+	&__button {
+		box-sizing: content-box;
+		transition: var( --transition-hover );
+		transition-property: opacity;
+
+		&[ aria-expanded='true' ] {
+			background-color: var( --background-color-moetheme--active );
+		}
+	}
+
+	&-item {
+		display: grid;
+		gap: 0.25rem;
+
+		&__label {
+			display: flex;
+			width: 100%;
+			justify-content: space-between;
+		}
+
+		&__title {
+			color: var( --color-base--subtle );
+			letter-spacing: 0.75px;
+		}
+
+		&__value {
+			color: var( --color-base--emphasized );
+			font-weight: 500;
+		}
+	}
+
+	&-theme {
+		&-option {
+			flex-grow: 1;
+			border: 1.5px solid var( --border-color-base--darker );
+			border-radius: var( --border-radius--medium );
+			cursor: pointer;
+			font-weight: 500;
+			text-align: center;
+			white-space: nowrap;
+			transition: box-shadow 200ms ease;
+
+			&:hover {
+				border-color: var( --color-moetheme--hover );
+				box-shadow: var( --box-shadow-card );
+			}
+
+			&:active {
+				border-color: var( --color-moetheme--active );
+			}
+
+			&:after {
+				display: inline-block;
+				width: ~'calc( var( --size-icon ) * 4.5 )';
+				height: ~'calc( var( --size-icon ) * 2 )';
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: contain;
+				content: '';
+				transition: var( --transition-hover );
+				transition-property: opacity;
+			}
+		}
+	}
+
+	// We only show min and max value
+	&__tickmarks {
+		display: flex;
+		justify-content: space-between;
+		color: var( --color-base--subtle );
+		font-size: 0.8125rem;
+	}
+}
+
+#moeskin-pref {
+	&-header {
+		padding: 1.25rem 1.25rem 0;
+		font-size: 1rem;
+		font-weight: 600;
+	}
+
+	&-header a {
+		color: var( --color-base--emphasized ) !important;
+	}
+
+	// TODO: unify the dropdown menu style somewhere
+	&-panel {
+		position: absolute;
+		top: 100%;
+		right: 1.25rem;
+		left: 1.25rem;
+		accent-color: var( --color-moetheme );
+		.moeskin-card;
+		.moeskin-card-hide( top right );
+		.moeskin-card-transition();
+		border-top: 1px solid var( --border-color-base );
+		border-radius: 0 0 var( --border-radius--medium ) var( --border-radius--medium );
+
+		&.moeskin-pref-panel--active {
+			.moeskin-card-show;
+		}
+
+		fieldset {
+			padding: 0 1.25rem;
+			border: 0;
+			margin: 0;
+			appearance: none;
+			font-size: 0.875rem;
+		}
+
+		> * {
+			opacity: 0;
+		}
+	}
+
+	&-form {
+		display: grid;
+		margin: 1rem 0;
+		gap: 1.25rem;
+	}
+
+	&-theme {
+		&-option {
+			&-light {
+				background: @color-surface-0;
+				color: @color-base;
+			}
+
+			&-dark {
+				background: @color-surface-0-dark;
+				color: @dark-color-base;
+			}
+		}
+
+		fieldset {
+			display: flex;
+			width: 100%;
+			padding: 0;
+			margin-top: 0.25rem;
+			gap: 0.5rem;
+		}
+
+		// Let label be the radio button
+		input {
+			display: none;
+
+			&:checked {
+				+ label {
+					border-color: var( --color-moetheme );
+				}
+			}
+		}
+	}
+
+	&-resetbutton {
+		width: 100%;
+		padding: 0.625rem 1.25rem;
+		border: 0;
+		border-radius: 0 0 var( --border-radius--medium ) var( --border-radius--medium );
+		appearance: none;
+		background: var( --color-destructive );
+		color: #fff;
+		cursor: pointer;
+		font-family: inherit;
+		font-size: 0.875rem;
+		font-weight: 500;
+
+		&:hover {
+			background: var( --color-destructive--hover );
+		}
+
+		&:active {
+			background: var( --color-destructive--active );
+		}
+	}
+
+}
+
+.skin-moeskin-dark #moeskin-pref-theme-option-auto:after {
+	filter: invert(1) hue-rotate(180deg);
+}
+
+@media ( min-width: @width-breakpoint-mobile ) {
+	#moeskin-pref {
+		position: relative;
+
+		&-panel {
+			right: 0;
+			left: unset;
+			min-width: 20rem;
+		}
+	}
+}
+
+@media ( hover: hover ) {
+	.moeskin-pref:hover .moeskin-pref__button:after {
+		transform: rotate3d( 0, 0, 1, 90deg );
+	}
+}

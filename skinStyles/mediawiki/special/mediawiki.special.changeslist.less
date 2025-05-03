@@ -1,0 +1,301 @@
+/*
+ * MoeSkin - Recent Changes Styles
+*/
+
+@import '../../../resources/variables.less';
+@import '../../../resources/mixins.less';
+
+// Mimic siteSub
+.mw-rcfilters-enabled,
+.mw-rcfilters-disabled {
+	.mw-specialpage-summary {
+		margin: -0.6rem 0 1.6rem;
+		color: var( --color-base--subtle );
+		font-size: @content-caption-size;
+
+		p {
+			margin: 0;
+		}
+	}
+}
+
+.rcoptions {
+	border: 0;
+	padding: 15px;
+	border-radius: var( --border-radius--medium );
+	background: var( --color-surface-2 );
+
+	legend {
+		width: 100%;
+		padding: @margin-side / 2 0;
+		margin-bottom: @margin-side / 2;
+		font-size: @content-small-text-size;
+		margin-bottom: -17px;
+	}
+}
+
+.mw-plusminus {
+	&-pos {
+		color: var( --color-text-success );
+	}
+
+	&-neg {
+		color: var( --color-text-error );
+	}
+
+	&-null {
+		color: var( --color-base--subtle );
+	}
+}
+
+.mw-changeslist {
+	h4 {
+		padding: @margin-side / 2 0 !important;
+		border-bottom: 1px solid var( --border-color-base );
+		color: var( --color-base--subtle );
+		font-size: 0.8125rem !important;
+		font-weight: normal !important;
+		letter-spacing: 0.75px;
+		margin-left: 0 !important;
+	}
+
+	&-line {
+		.moeskin-list-li();
+
+		/* Disable timeline dot for nested changeline */
+		.mw-changeslist-line::before {
+			content: none;
+		}
+	}
+
+	a&-date {
+		display: inline-block;
+		text-align-last: justify;
+		width: 13.8em;
+	}
+}
+
+.mw-contributions-list {
+	list-style: none;
+
+	&:first-of-type {
+		border-top: 1px solid var( --border-color-base );
+	}
+
+	li {
+		.moeskin-list-li();
+	}
+
+	.mw-tag-markers {
+		font-size: 0;
+	}
+}
+
+.mw-uctop {
+	margin-left: -5px;
+}
+
+a.mw-changeslist-date {
+	color: var( --color-base--emphasized );
+}
+
+.oo-ui-labelWidget {
+	color: var( --color-base ) !important;
+}
+
+.client-js .mw-recentchanges-toplinks:not( .mw-recentchanges-toplinks-collapsed ) {
+	border-color: var( --border-color-base );
+}
+
+.client-js .mw-changeslist ul, .client-js .mw-changeslist table.mw-enhanced-rc {
+	margin: 0 !important;
+}
+
+/*
+ * Make changelist looks like a timeline
+ * And also sync different history lists into the same styles
+*/
+.mw-changeslist-line {
+	margin: 0 !important;
+}
+
+.mw-changeslist,
+.mw-contributions-list {
+	.moeskin-list();
+}
+
+.mw-rcfilters-ui-highlights-enhanced-nested {
+	border-bottom: none !important;
+	padding: 3px 0;
+}
+
+.mw-enhanced-rc {
+	td& {
+		min-width: 4.55em;
+		text-align: end;
+		font-weight: 350;
+		padding-right: 0.7em !important;
+		color: var( --color-base--emphasized );
+		font-family: var( --font-family-base ) !important;
+	}
+
+	td.mw-enhanced-rc-nested {
+		padding-left: 1.1em !important;
+	}
+
+	&-time {
+		font-weight: 350;
+		color: var( --color-base--emphasized );
+		font-family: var( --font-family-base ) !important;
+	}
+
+	&-nested {
+		margin-top: @margin-side / 4;
+
+		.mw-tag-markers {
+			margin: @margin-side / 4;
+		}
+	}
+}
+
+@media ( max-width: @width-breakpoint-tablet ) {
+	.mw-changeslist {
+		&-line-inner {
+			padding-left: 8px !important;
+		}
+
+		&-separator:empty:before {
+			content: '';
+		}
+
+		&-separator--semicolon:before {
+			content: '';
+		}
+
+		&-line-inner-userLink, .changedby {
+			margin-left: -4px;
+		}
+
+		&-log-entry {
+			display: block;
+			overflow-wrap: break-word;
+			transform: translateY( 25px );
+			padding-bottom: 25px;
+		}
+
+		&-date.mw-changeslist-time {
+			display: block;
+			transform: translate( 4px );
+			height: 0;
+		}
+
+		.mw-diff-bytes {
+			display: block;
+			transform: translate( 40px );
+		}
+	}
+
+	.mw-contributions-list {
+		.mw-diff-bytes {
+			display: inline-block;
+			min-width: 3.5em;
+		}
+		.mw-revdelundel-link {
+			display: none;
+		}
+
+	}
+
+	td.mw-enhanced-rc {
+		position: absolute;
+		transform: translate( -18px, 24px );
+	}
+
+	.mw-title+.mw-changeslist-links, .mw-changeslist-line-inner-historyLink {
+		position: absolute;
+	}
+
+	.comment {
+		display: block;
+	}
+}
+
+@media ( min-width: @width-breakpoint-tablet ) {
+	.action-history .mw-comment-none {
+		position: inherit !important;
+		height: auto;
+		display: inline;
+
+		&:before {
+			content: '（' !important;
+		}
+
+		&:after {
+			content: '）' !important;
+		}
+	}
+
+	.mw-changeslist {
+		&-line {
+			display: flex;
+		}
+	}
+
+	.mw-contributions-list {
+		li {
+			display: flex;
+			flex-flow: row wrap;
+			gap: 5px;
+		}
+	}
+
+	.mw-special-Contributions {
+		.mw-contributions-title {
+			width: 160px;
+			white-space: nowrap;
+			text-align: center;
+		}
+
+		.mw-diff-bytes {
+			order: 2;
+			width: 100px !important;
+			margin-left: -30px;
+		}
+
+		.mw-changeslist-separator {
+			display: none;
+		}
+
+		abbr {
+			order: 3;
+		}
+
+		.mw-changeslist-links {
+			order: 3;
+			padding-right: 10px;
+		}
+
+		.mw-uctop {
+			order: 4;
+		}
+
+		.comment {
+			order: 5;
+		}
+	}
+
+	.mw-contributions-list {
+		.mw-diff-bytes {
+			width: 63px;
+			font-size: 98%;
+			white-space: nowrap;
+			display: inline-block;
+			text-align: center;
+		}
+
+		.mw-tag-markers {
+			right: 0;
+			position: absolute;
+		}
+	}
+}

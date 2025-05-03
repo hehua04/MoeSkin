@@ -1,0 +1,49 @@
+/**
+ * Loading indicator
+ *
+ * By adding a class on the parent search form
+ * <div class=".moeskin-loading"></div>
+ * A pseudo element is added via ':after' that adds the loading indicator.
+ *
+ * After appearing for more than a second, a progress-bar animation appears
+ * above the loading indicator.
+ *
+ **/
+.moeskin-body, #flowthread {
+	animation: fade-in 0.1s ease-in-out forwards;
+}
+
+.moeskin-loading .mw-body-header, .moeskin-loading .moeskin-body, .moeskin-loading #flowthread {
+	animation: fade-out 0.1s ease-in-out forwards;
+	pointer-events: none;
+}
+
+.moeskin-loading:after {
+	content: 'loading';
+	font-size: 0;
+	width: 15px;
+	height: 15px;
+	border: 2px solid var( --color-moetheme );
+	border-top-color: transparent;
+	border-radius: 100%;
+	animation: fade-in 0.25s ease-in-out forwards, circle infinite 0.75s linear;
+}
+
+@keyframes circle {
+	0% {
+		transform: rotate( 0 );
+	}
+	100% {
+		transform: rotate( 360deg );
+	}
+}
+
+// On page unload
+html.moeskin-loading:after {
+	position: fixed;
+	top: 50%;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+

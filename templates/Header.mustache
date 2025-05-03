@@ -1,0 +1,27 @@
+ {{!
+ 	string link-mainpage link to the main page
+	string msg-moeskin-drawer-toggle The label used by the drawer button.
+	string html-moeskin-jumptotop Jump to top title text
+}}
+<header class="mw-header moeskin-header is-at-top">
+	{{#data-drawer}}{{>Drawer}}{{/data-drawer}}
+	<div class="moeskin-header__inner">
+		<div class="moeskin-header__start">
+			<a href="{{link-mainpage}}" class="moeskin-header__title moeskin-header__title--site"><div class="mw-logo-wordmark" title="{{msg-sitetitle}}">MoeGirL</div></a>
+			<a 
+				href="#top"
+				class="moeskin-header__title moeskin-header__title--page"
+				title="{{html-moeskin-jumptotop}}">
+				<div>{{{html-title}}}</div>
+			</a>
+		</div>
+		<div class="moeskin-header__end">
+			<div id="moeskin-pref" class="moeskin-pref moeskin-header__item"><label id="moeskin-pref-toggle" class="moeskin-pref__button moeskin-header__button moeskin-header__button--icon" title="{{msg-moeskin-prefs-toggle}}" aria-label="{{msg-moeskin-prefs-toggle}}" aria-controls="moeskin-pref-panel"></label></div>
+			{{#data-notifications}}{{>Menu}}{{/data-notifications}}
+			<div id="p-achievement" class="moeskin-header__item"><a href="/project:achievement"><label id="moeskin-achievement-toggle" class="mw-checkbox-hack-button moeskin-header__button moeskin-header__button--icon" title="{{msg-moeskin-achievement-toggle}}" aria-label="{{msg-moeskin-achievement-toggle}}"></label></a></div>
+			<div id="p-feather" class="moeskin-header__item"><a href="/project:achievement"><label id="moeskin-feather-toggle" class="mw-checkbox-hack-button moeskin-header__button moeskin-header__button--icon" title="{{msg-moeskin-feather-toggle}}" aria-label="{{msg-moeskin-feather-toggle}}"></label></a></div>
+			{{#data-personal-menu}}{{>PersonalMenu}}{{/data-personal-menu}}
+		</div>
+	</div>
+	{{#data-search-box}}{{>Search}}{{/data-search-box}}
+</header>

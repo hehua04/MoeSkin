@@ -1,0 +1,132 @@
+/*
+ * MoeSkin - File Page Styles
+*/
+
+@import '../../../resources/variables.less';
+
+#filetoc {
+	display: none;
+}
+
+.fullImageLink {
+	> a {
+		display: block;
+
+		> img {
+			display: block;
+			max-width: 100%;
+			height: auto;
+			margin: 0 auto;
+			box-shadow: var( --box-shadow-card );
+			border-radius: var( --border-radius--medium );
+		}
+	}
+
+	.mw-filepage-resolutioninfo {
+		padding: @margin-side / 2 @margin-side;
+		border-bottom: 1px solid var( --border-color-base );
+		text-align: center;
+		position: relative;
+	}
+}
+
+.fullMedia {
+	padding: @margin-side / 2 @margin-side;
+	border-top: 0;
+	font-size: smaller;
+	text-align: center;
+
+	.mw-mmv-filepage-buttons {
+		display: flex;
+		justify-content: center;
+		margin-top: @margin-side / 2;
+	}
+}
+
+.multipageimage {
+	display: flex;
+	overflow: visible;
+	justify-content: center;
+
+	.fullImageLink {
+		margin: 0 !important;
+	}
+
+	> a > img {
+		margin: 0;
+	}
+
+	tr {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.multipageimagenavbox {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-top: 0.8rem;
+
+		.thumb {
+			margin: 0 !important;
+
+			&:first-of-type {
+				order: -1;
+			}
+
+			.lazy {
+				filter: none !important;
+			}
+		}
+
+		hr,
+		br {
+			display: none;
+		}
+	}
+}
+
+.mw-filepage-resolutioninfo {
+	margin-top: 0.5rem;
+	margin-right: ~'calc( 0.25rem * -1 )';
+	// Compensate for margin in links, because we can't use flex gap
+	margin-left: ~'calc( 0.25rem * -1 )';
+	// HACK: Hide text
+	font-size: 0;
+
+	.mw-thumbnail-link {
+		display: inline-block;
+		padding: 0.25rem 1rem;
+		border: 1px solid var( --border-color-base );
+		border-radius: 9999px;
+		margin: 0.25rem;
+		background-color: var( --color-surface-0 );
+		font-size: 0.875rem;
+		transition: var( --transition-hover );
+		transition-property: background, color;
+
+		&:hover {
+			background-color: var( --color-primary--hover );
+			color: #fff;
+		}
+
+		&:active {
+			background-color: var( --color-primary--active );
+			color: #fff;
+		}
+	}
+
+	// Current preview resolution
+	> .mw-thumbnail-link {
+		background-color: var( --color-primary );
+		color: #fff;
+	}
+}
+
+.mw_metadata {
+	td,
+	th {
+		border: 1px solid var( --border-color-base );
+		background-color: var( --background-color-framed );
+	}
+}

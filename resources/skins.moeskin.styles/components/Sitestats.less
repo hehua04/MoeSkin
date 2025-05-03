@@ -1,0 +1,38 @@
+.moeskin-siteStats {
+	font-size: 0.875rem; // TODO: Put this in variable
+	gap: 0.875rem;
+
+	&__item {
+		display: flex;
+		align-items: center;
+		gap: 0.4375rem;
+
+		&:before {
+			width: 0.875rem;
+			height: 0.875rem;
+			background-size: contain;
+			content: '';
+			opacity: var( --opacity-icon-base );
+		}
+	}
+}
+
+.skin-moeskin-dark {
+	.moeskin-siteStats__item:before {
+		filter: invert( 1 ) hue-rotate( 180deg );
+	}
+}
+
+#n-randompage {
+	display: none;
+}
+
+@media ( max-width: @width-breakpoint-mobile ) {
+	.moeskin-siteStats {
+		display: flex;
+	}
+
+	#moeskin-siteStats__item--images {
+		display: none;
+	}
+}

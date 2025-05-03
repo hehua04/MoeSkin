@@ -1,0 +1,101 @@
+// Implemented by site widgets
+/*.userlink-avatar-small {
+	margin: -0.2em 0.2em 0 0.2em;
+	width: 1.5em;
+	border-radius: 15%;
+}
+
+.userlink-avatar-large {
+	display: none;
+	position: absolute;
+	top: 1em;
+	left: 1em;
+	padding: 1.5em;
+	border: solid #A7D7F9 1px;
+	border-radius: 3px;
+	background-color: white;
+}
+
+.userlink-avatar-large img {
+	min-width: 128px;
+}
+
+.userlink-avatar-hover,
+.userlink-avatar-hover .userlink-avatar-small {
+	position: relative;
+	cursor: pointer;
+}
+
+.userlink-avatar-hover:hover .userlink-avatar-large {
+	display: block;
+	z-index: 91;
+}*/
+
+#pt-avatar > a > img {
+	margin-left: 5px;
+	border-radius: 10px;
+}
+
+#firstHeading > a > img, .comment-avatar > img {
+	opacity: 0;
+	animation: fade-in 1s var( --transition-hover ) forwards;
+}
+
+.ns-2.action-view {
+	#firstHeading:before {
+		content: "";
+		position: absolute;
+		width: 120px;
+		height: 120px;
+		margin-top: 5px;
+		padding: 4px;
+		border-radius: 10px;
+		background-color: var( --color-surface-2 );
+	}
+
+	.firstHeading {
+		display: flex;
+	}
+
+	.mw-body-header {
+		min-height: 140px;
+	}
+
+	#firstHeading > .mw-page-title-namespace {
+		display: none;
+	}
+
+	#firstHeading > .mw-page-title-separator {
+		display: none;
+	}
+
+	#firstHeading > .mw-page-title-main {
+		position: absolute;
+		top: 28px;
+		left: 144px;
+		white-space: nowrap;
+		width: 63%;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	#siteSub {
+		position: absolute;
+		left: 145px;
+		top: 70px;
+	}
+
+	.page-actions {
+		margin: auto 0 10px auto;
+	}
+
+	.firstHeading-container {
+		display: block;
+	}
+}
+
+.skin-moeskin-dark {
+	#firstHeading > a > img, .comment-avatar > img {
+		animation: dark-fade-in 1s var( --transition-hover ) forwards;
+	}
+}

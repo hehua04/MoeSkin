@@ -1,0 +1,107 @@
+/*
+ * MoeSkin - Widget Datetime
+*/
+
+@import '../../resources/variables.less';
+
+
+.mw-widget-dateInputWidget {
+	&-handle {
+		border-color: var( --border-color-base--darker ) !important;
+		background-color: transparent;
+
+		&:hover {
+			border-color: var( --color-primary--hover ) !important;
+			background-color: var( --color-surface-0 ) !important;
+		}
+
+	}
+
+	&-calendar {
+		margin-top: 5px !important;
+		margin-bottom: 5px !important;
+		background-color: var( --color-surface-1 ) !important;
+		border-color: transparent !important;
+		box-shadow: var( --box-shadow-dialog ) !important;
+		border-radius: var( --border-radius--medium ) !important;
+	}
+
+	&-item-selected {
+		background-color: var( --color-primary );
+	}
+
+	&-item:hover {
+		background-color: var( --color-primary );
+	}
+
+}
+
+.mw-widgets-datetime-calendarWidget {
+	padding: 0 !important;
+	margin-top: 5px !important;
+	margin-bottom: 5px !important;
+	background-color: var( --color-surface-1 ) !important;
+	border-color: transparent !important;
+	box-shadow: var(--box-shadow-dialog) !important;
+	border-radius: var(--border-radius--medium) !important;
+
+	&-grid .oo-ui-buttonElement-button {
+		background-color: transparent !important;
+		border-radius: var( --border-radius--medium ) !important;
+	}
+
+	&-grid .mw-widgets-datetime-calendarWidget-cell.mw-widgets-datetime-calendarWidget-selected .oo-ui-buttonElement-button {
+		background-color: var( --color-primary--active ) !important;
+	}
+
+	&-grid .mw-widgets-datetime-calendarWidget-cell.oo-ui-widget-enabled .oo-ui-buttonElement-button:hover {
+		background-color: var( --color-primary ) !important;
+	}
+}
+
+.mw-widgets-datetime-calendarWidget-heading {
+	line-height: 2.3em;
+}
+
+table.mw-widgets-datetime-calendarWidget-grid {
+	margin-top: 0 !important;
+}
+
+.mw-widgets-datetime-dateTimeInputWidget-editField:hover {
+	background-color: var( --color-surface-2 ) !important;
+}
+
+.mw-widget-calendarWidget-item {
+	border-radius: var( --border-radius--medium ) !important;
+}
+
+.mw-widgets-datetime-dateTimeInputWidget-handle {
+	background-color: var( --color-surface-0 ) !important;
+	color:var( --color-base ) !important;
+}
+
+.skin-moeskin-dark {
+	.mw-widgets-datetime-calendarWidget {
+		border-color: @dark-bg-50 !important;
+	}
+
+	.mw-widget-calendarWidget {
+		border: 1px solid @dark-bg-50 !important;
+
+		&-day {
+			color: @dark-text-90 !important;
+		}
+
+		&-day-heading {
+			color: @dark-text-80 !important;
+		}
+
+		&-day-additional {
+			color: @dark-text-60 !important;
+
+			&:hover {
+				color: @dark-text-90 !important;
+			}
+		}
+	}
+}

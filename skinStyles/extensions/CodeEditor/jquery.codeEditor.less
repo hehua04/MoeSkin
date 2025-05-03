@@ -1,0 +1,28 @@
+/*
+ * MoeSkin
+ *
+ * SkinStyles for Extension:CodeEditor
+ * Module: jquery.codeEditor
+ *
+*/
+
+.codeEditor-status {
+	width: auto; // so it won't overflow
+	padding-top: 3px; // Make space for resize indicator
+	border-top-color: var( --border-color-base );
+	background-color: var( --color-surface-0 );
+	color: var( --color-base--subtle );
+	line-height: 1.375;
+
+	&-worker,
+	&-line,
+	&-message {
+		padding: 0 0.5rem;
+		line-break: auto;
+	}
+
+	&-message {
+		border-color: var( --border-color-base );
+		color: var( --color-base--emphasized );
+	}
+}

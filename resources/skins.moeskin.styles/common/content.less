@@ -1,0 +1,288 @@
+.firstHeading {
+	margin: 0;
+	overflow-wrap: break-word;
+	word-break: break-word;
+}
+
+.firstHeading-parenthesis {
+	color: var( --color-base--subtle );
+}
+
+#siteSub {
+	display: block;
+	margin-top: 0.25rem;
+}
+
+#siteSub,
+#contentSub,
+#contentSub2 {
+	color: var( --color-base--subtle );
+}
+
+.moeskin-body {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		padding: 0;
+		margin: 0;
+	}
+
+	h1,
+	h2 {
+		margin-top: @content-margin-top * 2.5;
+		margin-left: 0.2rem;
+	}
+
+	h3,
+	h4,
+	h5,
+	h6 {
+		margin-top: @content-margin-top * 2;
+		margin-left: 0.2rem;
+	}
+
+	h1 + h2,
+	h2 + h3,
+	h3 + h4,
+	h4 + h5,
+	h5 + h6,
+	table {
+		margin-top: @content-margin-top;
+	}
+
+	p {
+		margin-top: @content-margin-top;
+		margin-bottom: @content-margin-top;
+		overflow-wrap: break-word;
+	}
+
+	ul {
+		margin: 0.8rem 0 0 1.05rem;
+
+		ul {
+			margin: 0 0 0 @content-margin-top * 2;
+		}
+	}
+
+	ol {
+		margin: @content-margin-top 0 0 @content-margin-top * 2;
+
+		ol {
+			margin: 0 0 0 @content-margin-top * 2;
+		}
+	}
+
+	img {
+		opacity: 0;
+		animation: fade-in 1s var( --transition-hover ) forwards;
+		vertical-align: middle;
+		border-radius: var( --border-radius--small );
+	}
+
+	a.image {
+		display: inline-block;
+		overflow: hidden;
+		vertical-align: top; // get rid of that weird bottom gap from inline block
+		background-color: var( --color-surface-2 );
+
+		img,
+		source {
+			max-width: inherit;
+			height: auto;
+			transition: var( --transition-hover );
+			transition-property: opacity;
+		}
+
+		&:hover:not( .lazy ):not( .new ) {
+			img,
+			source {
+				opacity: 90% !important;
+			}
+		}
+	}
+
+	.mw-editsection {
+		display: flex;
+		margin-top: 0.04rem;
+		margin-right: 0.4rem;
+		float: right; // Can't target the container so have to use to float
+
+		a {
+			.resource-loader-icon-link-small;
+			padding: 0.3rem;
+			border-radius: var( --border-radius--small );
+			opacity: var( --opacity-icon-base );
+			text-indent: -9999px; // Hide text
+			height: 1.5rem;
+			transition: var( --transition-hover );
+			transition-property: opacity;
+
+			&:before {
+				.resource-loader-icon;
+				display: block;
+				background-size: contain;
+			}
+
+			&:hover {
+				opacity: var( --opacity-icon-base--hover );
+				background-color: var( --background-color-quiet--hover );
+			}
+
+			&:active {
+				opacity: var( --opacity-icon-base--active );
+				background-color: var( --background-color-quiet--hover );
+			}
+		}
+
+		> span {
+			display: none;
+		}
+	}
+}
+
+.mw-body-content h2:not(.section-heading, .searchresults h2,.oo-ui-inputWidget, .toctitle h2, .mw-createacct-benefits-container h2), .mw-body-content h3:not(.section-subheading) {
+	padding-left: 0.8rem;
+}
+
+.mw-body-content h2:not(.searchresults h2, .oo-ui-inputWidget, .toctitle h2, .mw-createacct-benefits-container h2)::before, .mw-body-content h3:not(.mw-category-group h3)::before {
+	content: "";
+	user-select: none;
+	-webkit-user-select: none;
+	position: absolute;
+	background-color: var( --headline-color-moetheme );
+	border-radius: 1em;
+	overflow: hidden;
+}
+
+.mw-body-content h2:not(.searchresults h2, .section-heading, .oo-ui-inputWidget, .toctitle h2, .mw-createacct-benefits-container h2)::before {
+	transform: translate(-16px, 0);
+	height: 27px;
+	width: 5.5px;
+}
+
+.mw-body-content h3:not(.section-subheading)::before {
+	transform: translate( -16px, 20% );
+	height: 23px;
+	width: 4.5px;
+}
+
+.mw-body-content h2:not(.searchresults h2, .toctitle h2, .mw-createacct-benefits-container h2) .mw-headline::before {
+	content: "";
+	user-select: none;
+	-webkit-user-select: none;
+	color: var( --headline-color-moetheme );
+	transform: translate(-16px,0);
+	background-color: var( --headline-color-moetheme );
+	position: absolute;
+	height: 27px;
+	width: 5.5px;
+	border-radius: 1em;
+	overflow: hidden;
+}
+
+.mw-body-content h3:not(.mw-category-group h3).section-subheading::before {
+	transform: translate(-3px, 1%);
+	height: 23px;
+	width: 4.5px;
+}
+
+.mw-category-group h3 {
+	margin-left: 0;
+}
+
+.center {
+	width: 100%;
+	text-align: center;
+}
+
+.mw-body,
+.parsoid-body {
+	direction: ltr;
+}
+
+.mw-indicator {
+	a {
+		line-height: 22px !important;
+	}
+}
+
+.mw-indicators {
+	padding-left: 10px;
+	border-left: 1px solid var( --border-color-base );
+	margin-left: 10px;
+	font-size: @ui-menu-text;
+}
+
+.printfooter {
+	display: none;
+}
+
+div.patrollink {
+	font-size: 75%;
+	text-align: right;
+}
+
+video {
+	max-width: 100%; // Prevent overflow
+}
+
+#p-tb-label > span {
+	display: none;
+}
+
+#pt-preferences {
+	display: none;
+}
+
+.mw-json th, .mw-json td {
+	color: black !important;
+	border-color: var( --border-color-base );
+}
+
+form:not( .oo-ui-layout ) button, form:not( .oo-ui-layout ) input[ type='submit' ] {
+	border-radius: var( --border-radius--small );
+	padding: 0.35em 1em;
+	font-weight: bold;
+}
+
+.mw-changeslist-legend {
+	display :none;
+}
+
+.skin-moeskin-dark {
+	color-scheme: dark;
+
+	.moeskin-body {
+		img {
+			animation: dark-fade-in 1s var(--transition-hover) forwards;
+		}
+	}
+
+	.mw-editsection > a:before {
+		filter: invert( 1 ) hue-rotate( 180deg );
+	}
+
+	.mw-indicator {
+		filter: invert( 1 ) hue-rotate( 180deg );
+
+		// Have to hardcode the color since the filter breaks the color
+		a {
+			color: @color-primary;
+
+			&:hover {
+				color: @color-primary--hover;
+			}
+
+			&:active {
+				color: @color-primary--active;
+			}
+		}
+	}
+
+	.oo-ui-buttonElement-framed.oo-ui-widget-enabled > .oo-ui-buttonElement-button:hover {
+		color: #fff;
+	}
+}

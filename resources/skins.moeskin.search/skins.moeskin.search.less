@@ -1,0 +1,225 @@
+@import '../variables.less';
+@import '../mixins.less';
+
+.moeskin-typeahead {
+	position: absolute;
+	overflow: auto;
+	width: 100%;
+	max-height: ~'calc( 100vh - var( --height-header ) )';
+	box-sizing: content-box; // Magic to align with search input
+	border-bottom-left-radius: var( --border-radius--medium );
+	border-bottom-right-radius: var( --border-radius--medium );
+	padding-top: 10px;
+	top: ~'calc( var( --height-header ) - 40px )';
+	overscroll-behavior: contain;
+	.moeskin-card( false );
+	.moeskin-card-hide( 50% 0, Y, false );
+	// Well this won't be loaded before .moeskin-animation-ready anyways
+	.moeskin-card-transition();
+
+	&__item {
+		.moeskin-typeahead {
+			&__text {
+				white-space: nowrap;
+			}
+		}
+
+		&--active {
+			background-color: var( --background-color-moetheme--hover );
+		}
+
+		&--hidden {
+			display: none;
+		}
+
+		&-sm {
+			.moeskin-typeahead {
+				&__content {
+					padding: 0.75rem 0;
+					border-top: 1px solid var( --border-color-base );
+				}
+
+				&__thumbnail {
+					height: var( --size-icon );
+					background-color: transparent;
+				}
+
+				&__description {
+					color: var( --color-base );
+				}
+			}
+
+			+ .moeskin-typeahead__item-sm {
+				.moeskin-typeahead__content {
+					border-top: 0;
+				}
+			}
+		}
+
+		&-md {
+			.moeskin-typeahead {
+				&__thumbnail {
+					background-color: #eaecf0;
+					background-position: center;
+					background-size: cover;
+					margin-right: 0.75rem;
+					max-width: 65px;
+					height: 65px;
+
+					&.moeskin-ui-icon {
+						height: 60px;
+						background-color: var( --color-surface-3 );
+
+						&::before {
+							background-size: 20px;
+						}
+					}
+				}
+			}
+		}
+
+		&-lg {
+			.moeskin-typeahead {
+				&__content {
+					flex-direction: column;
+					padding: 1rem 0 1.5rem;
+					text-align: center;
+				}
+
+				&__thumbnail {
+					margin-bottom: 0.75rem;
+				}
+			}
+		}
+	}
+
+	&__content {
+		display: flex;
+		align-items: center;
+		padding: 0.5rem 0;
+		margin: 0 0.75rem;
+		color: var( --color-base );
+	}
+
+	&__thumbnail {
+		overflow: hidden;
+		width: 100%;
+		max-width: 80px;
+		height: 80px;
+		flex-shrink: 0;
+		border-radius: var( --border-radius--medium );
+		background-position:center; 
+		background-repeat:no-repeat;
+		background-size: contain;
+
+		&.moeskin-ui-icon {
+			.mw-ui-icon-wikimedia-articleSearch {
+				background-position:center; 
+				background-repeat:no-repeat;
+				background-size: contain;
+			}
+		}
+	}
+
+	&__text {
+		overflow: hidden;
+		flex-grow: 1;
+	}
+
+	&__header {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__title {
+		flex-shrink: 0;
+		color: var( --color-base--emphasized );
+		font-weight: 600;
+	}
+
+	&__query {
+		color: var( --color-base--emphasized );
+		font-weight: 600;
+	}
+
+	&__label {
+		display: flex;
+		margin-left: 0.5rem;
+		color: var( --color-base );
+		font-size: 0.8125rem;
+		gap: 0.25rem;
+
+		.moeskin-ui-icon {
+			width: 0.8125rem;
+			height: 0.8125rem;
+			margin-right: 0.25rem;
+		}
+	}
+
+	&__labelItem {
+		display: flex;
+		align-items: center;
+	}
+
+	&__description {
+		color: var( --color-base--subtle );
+		font-size: 0.8125rem;
+	}
+
+	&__title,
+	&__description {
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	&__actions {
+		position: absolute;
+		right: 0.75rem;
+		color: var( --color-moetheme );
+	}
+
+	&__keyboard {
+		display: none;
+		padding: 0 8px;
+		border-radius: var( --border-radius--small );
+		background-color: var( --color-surface-1 );
+	}
+
+	.moeskin-search__card--expanded & {
+		.moeskin-card-show( false );
+	}
+}
+
+// Merge searchform with typeahead
+.moeskin-search__card {
+	&&--expanded {
+		border-bottom-color: transparent;
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+
+		.moeskin-typeahead {
+			border-top-color: transparent; // Reset moeskin-card style
+		}
+	}
+}
+
+// HACK: This is as close as we can to detect whether there is a keyboard in CSS
+@media ( hover: hover ) and ( pointer: fine ) {
+	.moeskin-typeahead {
+		&__item--active {
+			.moeskin-typeahead__keyboard {
+				display: block;
+			}
+		}
+	}
+}
+
+// HACK: Hide default MW search suggestion if it somehow loaded
+// This should be removed when we switch to vue search
+.suggestions {
+	display: none !important;
+}
+
+.skin-moeskin-dark .moeskin-typeahead__thumbnail.moeskin-ui-icon.mw-ui-icon-wikimedia-articleSearch {
+	filter: invert(0.8) hue-rotate(180deg);
+}

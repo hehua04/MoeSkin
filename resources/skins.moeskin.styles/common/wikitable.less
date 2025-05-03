@@ -1,0 +1,79 @@
+table.wikitable, .mw-datatable {
+	border: 0; // Override core MW styles
+	background-color: transparent; // Override core MW  styles
+	border-collapse: collapse;
+	color: var( --color-base ); // Override core MW  styles
+	line-break: auto;
+
+	caption {
+		margin-top: @content-margin-top;
+		font-weight: 600;
+	}
+
+	tr {
+		vertical-align: top;
+		transition: background 100ms ease;
+
+		th {
+			color: var( --color-base--subtle );
+			font-size: @content-caption-size;
+		}
+
+		td {
+			font-size: @content-monospace-size;
+		}
+
+		th,
+		td {
+			padding: 10px 15px 10px 15px;
+			border: 0;
+			border-bottom: 1px solid var( --border-color-base );
+			min-width: 2rem;
+			transition: background 100ms ease;
+		}
+
+
+	}
+}
+
+table.wikitable tr th {
+	font-weight: 500;
+}
+
+table.wikitable > tr > th, table.wikitable > * > tr > th {
+	text-align: center;
+}
+
+table.wikitable tr:hover { 
+	background-color: var( --background-color-quiet--hover );
+}
+
+.mw-datatable tr:hover td {
+	background-color: var( --background-color-quiet--hover );
+}
+
+.mw-datatable td {
+	background-color: var( --color-surface-0 );
+}
+
+table.wikitable tr th, .mw-datatable tr th {
+	background-color: var( --color-surface-2 );
+}
+
+.wikiEditor-toolbar-dialog .wikieditor-toolbar-table-preview-wrapper table {
+	text-align: left;
+}
+
+.wikitable.preview-limit-report tr:first-child, .wikitable.mw-page-info tr:first-child {
+	border-top: 1px solid var( --border-color-base );
+
+	&:hover {
+		background-color: var( --background-color-quiet--hover ) !important;
+	}
+}
+
+@media ( max-width: @width-breakpoint-desktop-wide ) {
+	table.wikiatble {
+		white-space: nowrap;
+	}
+}

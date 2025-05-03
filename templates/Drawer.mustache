@@ -1,0 +1,27 @@
+{{!
+	string msg-moeskin-drawer-toggle The label used by the drawer button.
+	string msg-sitetitle the contents of the sitesubtitle message key
+}}
+<div class="moeskin-drawer moeskin-header__item mw-checkbox-hack-container">
+	<input 
+		type="checkbox" 
+		id="moeskin-drawer__checkbox" 
+		class="mw-checkbox-hack-checkbox"
+		role="button"
+		aria-labelledby="moeskin-drawer__buttonCheckbox"
+		aria-haspopup="true">
+	{{! ID needed for a11y and checkbox hack }}
+	<aside id="moeskin-drawer__card" class="moeskin-drawer__card mw-checkbox-hack-target">
+		<header class="moeskin-drawer__header">
+			{{>Drawer__logo}}
+			<div class="moeskin-drawer__siteinfo">
+				{{>Drawer__siteStats}}
+				<div class="mw-logo-wordmark">{{msg-sitetitle}}</div>
+			</div>
+		</header>
+		<section class="moeskin-drawer__menu">
+			{{#array-portlets}}{{>Menu}}{{/array-portlets}}
+		</section>
+	</aside>
+	{{>Drawer__button}}
+</div>

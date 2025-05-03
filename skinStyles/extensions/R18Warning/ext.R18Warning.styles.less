@@ -1,0 +1,50 @@
+/*
+ * MoeSkin
+ *
+ * SkinStyles for Extension:R18Warning
+ * Module: ext.r18warning.styles
+ *
+*/
+
+@import '../../../resources/variables.less';
+
+.mw-r18warning-container {
+	display: grid;
+	right: 0;
+	max-width: 372px;
+	padding: 1.5rem;
+	gap: 1.2rem;
+	width: auto;
+	border-radius: var( --border-radius--large );
+	margin: 10px;
+	background-color: #343a40; // dark base 70
+	box-shadow: var( --box-shadow-dialog );
+	font-size: 0.875rem;
+
+	@media only screen and ( max-width: @width-breakpoint-mobile ) {
+		max-width: 96%;
+	}
+
+	.mw-r18warning-text {
+		margin-bottom: 0; // Override media styles
+		font-size: inherit;
+		font-weight: 500;
+		padding-bottom: 0;
+	}
+
+	form {
+		.oo-ui-layout {
+			display: grid;
+			gap: 0.5rem;
+		}
+
+		.oo-ui-widget {
+			margin: 0;
+
+			.oo-ui-buttonElement-button {
+				display: block;
+				width: 100%;
+			}
+		}
+	}
+}

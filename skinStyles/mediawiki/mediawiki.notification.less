@@ -1,0 +1,40 @@
+/*
+ * MoeSkin
+ *
+ * SkinStyles for MediaWiki notifications
+ * Module: mediawiki.notification
+ *
+*/
+
+@import '../../resources/variables.less';
+
+.mw-notification-area {
+	padding-top: 4em;
+	padding-bottom: 2em;
+}
+
+.mw-notification {
+	border-color: transparent;
+	border-radius: var( --border-radius--medium );
+	background-color: var( --color-surface-1 );
+	box-shadow: var( --box-shadow-dialog );
+	color: var( --color-base--emphasized );
+	font-size: @content-monospace-size;
+
+	&.mw-notification-type {
+		&-warn {
+			border-color: transparent;
+			background-color: var( --background-color-warning );
+		}
+
+		&-error {
+			border-color: transparent;
+			background-color: var( --background-color-destructive );
+		}
+
+		&-success {
+			border-color: transparent;
+			background-color: var( --background-color-success );
+		}
+	}
+}

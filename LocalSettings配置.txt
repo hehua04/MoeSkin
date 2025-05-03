@@ -1,0 +1,62 @@
+！您需要在您站点的LocalSettings里进行以下配置后，再载入皮肤，从而获得更好的体验。
+
+# 建议加入的特殊扩展（皮肤已完成适配）：
+Extension:TemplateStylesExtender
+Extension:NewUserMessage
+Extension:UploadWizard
+Extension:RelatedArticles
+Extension:DiscussionTools
+
+# 隐藏其他语言，仅允许选择中文或其变体作为站点语言（必备：皮肤界面只适配简繁中文）
+$wgHiddenPrefs[] = 'language';
+$wgLanguageCode = 'zh';
+
+# 使用新版维基源代码编辑器（必备：皮肤主要适配，否则移动端编辑将变得困难）
+$wgVisualEditorEnableWikitext = true;
+$wgDefaultUserOptions['visualeditor-newwikitext'] = 1;
+
+# 配置在新窗口打开外部链接（必备）
+$wgExternalLinkTarget = '_blank';
+
+# 允许用户从URL上传文件（必备）
+$wgGroupPermissions['user']['upload_by_url'] = true;
+
+# 特殊页允许运行站点CSS（因为安全性默认不允许，导致登录页设置页等页面样式与站点样式不同）
+$wgAllowSiteCSSOnRestrictedPages = true;
+
+# 允许匿名访客投票并查看投票结果
+$wgGroupPermissions['*']['ajaxpoll-vote'] = true;
+$wgGroupPermissions['*']['ajaxpoll-view-results'] = true;
+
+# 允许上传pdf
+$wgFileExtensions[] = 'pdf';
+
+# 允许自动确认用户覆盖相同文件
+$wgGroupPermissions['autoconfirmed']['reupload'] = true;
+
+# 允许使用维基共享媒体资源
+$wgUseInstantCommons = true;
+
+# 默认开启语法高亮
+$wgDefaultUserOptions['usecodemirror'] = 1;
+
+# 默认开启即时预览
+$wgDefaultUserOptions['uselivepreview'] = 1;
+
+# 隐藏真实姓名选项（必备：注册页面不应当要求用户填入真实姓名）
+$wgHiddenPrefs[] = 'realname';
+
+# 隐藏性别称呼选项（无意义）
+$wgHiddenPrefs[] = 'gender';
+
+# 隐藏调整缩略图大小选项（它只能改变一部分文章中有标注缩略图的图片，导致大小不一）
+$wgHiddenPrefs[] = 'thumbsize';
+
+# 隐藏链接显示下划线选项（未适配，无意义）
+$wgHiddenPrefs[] = 'underline';
+
+# 允许管理员在特殊页面编辑跨wiki数据
+$wgGroupPermissions['sysop']['interwiki'] = true;
+
+# 允许嵌入其他wiki的页面
+$wgEnableScaryTranscluding = true;

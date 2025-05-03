@@ -1,0 +1,212 @@
+/*
+ * MoeSkin
+ *
+ * SkinStyles for MediaWiki UI
+ * Module: mediawiki.ui.button
+ *
+*/
+
+.mw-ui-button {
+	border-color: var( --border-color-base );
+	background-color: var( --color-surface-2 );
+	color: var( --color-base--emphasized );
+	border-radius: var( --border-radius--small );
+
+	&:not( :disabled ) {
+		&:visited {
+			color: var( --color-base--emphasized );
+		}
+
+		&:hover {
+			border-color: var( --border-color-base );
+			background-color: var( --color-surface-2--hover );
+			color: var( --color-base--emphasized );
+		}
+
+		&:focus {
+			border-color: var( --color-primary );
+			box-shadow: none;
+		}
+
+		&:active,
+		&.is-on {
+			background-color: var( --color-surface-2--active );
+		}
+	}
+
+	&:disabled {
+		border-color: var( --color-surface-4 );
+		background-color: var( --color-surface-4 );
+		color: var( --color-base--subtle );
+	}
+
+	&.mw-ui-quiet,
+	&.mw-ui-quiet.mw-ui-progressive,
+	&.mw-ui-quiet.mw-ui-destructive {
+		color: var( --color-base--emphasized );
+		font-weight: 500;
+
+		input[ type='checkbox' ]:hover + &,
+		&:hover {
+			background-color: var( --background-color-quiet--hover );
+			color: var( --color-base--emphasized );
+		}
+
+		input[ type='checkbox' ]:focus + &,
+		&:focus {
+			border-color: var( --color-primary );
+			box-shadow: none;
+			color: var( --color-base--emphasized );
+		}
+
+		input[ type='checkbox' ]:active + &,
+		&:active {
+			border-color: transparent;
+			background-color: var( --background-color-quiet--active );
+			color: var( --color-base--subtle );
+		}
+
+		&:disabled,
+		&:disabled:hover,
+		&:disabled:active {
+			color: var( --color-base--subtle );
+		}
+	}
+
+	&.mw-ui-progressive {
+		&:not( :disabled ) {
+			border-color: var( --color-primary );
+			background-color: var( --color-primary );
+
+			&:hover {
+				border-color: var( --color-primary--hover );
+				background-color: var( --color-primary--hover );
+				color: #fff;
+			}
+
+			&:focus {
+				box-shadow: none;
+			}
+
+			&:active,
+			&.is-on {
+				border-color: var( --color-primary--active );
+				background-color: var( --color-primary--active );
+				color: #fff;
+			}
+		}
+
+		&:disabled {
+			border-color: var( --color-surface-4 );
+			background-color: var( --color-surface-4 );
+			color: var( --color-base--subtle );
+		}
+
+		&.mw-ui-quiet {
+			color: var( --color-primary );
+
+			input[ type='checkbox' ]:hover + &,
+			&:hover {
+				// Simplify quiet hover style
+				background-color: var( --background-color-quiet--hover );
+				color: var( --color-primary--hover );
+			}
+
+			input[ type='checkbox' ]:focus + &,
+			&:focus {
+				border-color: var( --color-primary );
+				color: var( --color-primary );
+			}
+
+			input[ type='checkbox' ]:active + &,
+			&:active {
+				border-color: var( --color-primary--active );
+				background-color: var( --color-primary--active );
+			}
+		}
+	}
+
+	&.mw-ui-destructive {
+		&:not( :disabled ) {
+			border-color: var( --color-destructive );
+			background-color: var( --color-destructive );
+
+			&:hover {
+				border-color: var( --color-destructive--hover );
+				background-color: var( --color-destructive--hover );
+				color: #fff;
+			}
+
+			&:focus {
+				box-shadow: none;
+			}
+
+			&:active,
+			&.is-on {
+				border-color: var( --color-destructive--active );
+				background-color: var( --color-destructive--active );
+				color: #fff;
+			}
+		}
+
+		&:disabled {
+			border-color: var( --color-surface-4 );
+			background-color: var( --color-surface-4 );
+			color: var( --color-base--subtle );
+		}
+
+		&.mw-ui-quiet {
+			color: var( --color-destructive );
+
+			input[ type='checkbox' ]:hover + &,
+			&:hover {
+				// Simplify quiet hover style
+				background-color: var( --background-color-quiet--hover );
+				color: var( --color-destructive--hover );
+			}
+
+			input[ type='checkbox' ]:focus + &,
+			&:focus {
+				border-color: var( --color-destructive );
+				color: var( --color-destructive );
+			}
+
+			input[ type='checkbox' ]:active + &,
+			&:active {
+				border-color: var( --color-destructive--active );
+				background-color: var( --color-destructive--active );
+			}
+		}
+	}
+
+	&.mw-ui-big {
+		// Smaller font size since MW UI assume a 14px base font size
+		font-size: 1.125em;
+	}
+
+	&-group > * {
+		&:first-child {
+			border-bottom-left-radius: var( --border-radius--small );
+			border-bottom-right-radius: 0;
+			border-top-left-radius: var( --border-radius--small );
+			border-top-right-radius: 0;
+		}
+
+		&:last-child {
+			border-bottom-right-radius: var( --border-radius--small );
+			border-bottom-left-radius: 0;
+			border-top-right-radius: var( --border-radius--small );
+			border-top-left-radius: 0;
+		}
+	}
+
+}
+
+
+button {
+	border: 1px solid var( --border-color-base );
+	border-radius: var( --border-radius--small );
+	font-weight: bold;
+	background-color: var( --color-surface-1 );
+	color: inherit;
+}

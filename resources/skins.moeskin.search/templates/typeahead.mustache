@@ -1,0 +1,35 @@
+{{!
+	string msg-moeskin-search-fulltext The label on the fulltext search in the typeahead.
+	string msg-moeskin-search-toggle Search toggle label
+}}
+
+<ol id="searchform-suggestions" class="moeskin-typeahead" role="listbox">
+	{{! Empty state }}
+	<li class="moeskin-typeahead__item-placeholder moeskin-typeahead__item-lg">
+		<div class="moeskin-typeahead__content">
+			<div class="moeskin-typeahead__thumbnail"></div>
+			<div class="moeskin-typeahead__text">
+				<div class="moeskin-typeahead__title">{{msg-moeskin-search-suggest}}</div>
+				<div class="moeskin-typeahead__description">{{msg-moeskin-search-empty-desc}}</div>
+			</div>
+		</div>
+	</li>
+	{{! Template }}
+	<template id="moeskin-typeahead-template">
+		<li role="option" class="moeskin-typeahead__item">
+			<a href="" class="moeskin-typeahead__content">
+				<div class="moeskin-typeahead__thumbnail"></div>
+				<div class="moeskin-typeahead__text">
+					<div class="moeskin-typeahead__header">
+						<div class="moeskin-typeahead__title"></div>
+						<div class="moeskin-typeahead__label"></div>
+					</div>
+					<div class="moeskin-typeahead__description"></div>
+				</div>
+				<div class="moeskin-typeahead__actions">
+					<div class="moeskin-typeahead__keyboard">↵</div>
+				</div>
+			</a>
+		</li>
+	</template>
+</ol>

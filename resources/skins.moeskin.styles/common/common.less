@@ -1,0 +1,368 @@
+/*
+ * Framework
+*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: var( --color-base );
+}
+
+table {
+	overflow: auto;
+	max-width: 100vw;
+}
+
+hr {
+	border: 0;
+	border-top: 1px solid var( --border-color-base--darker );
+}
+
+ul {
+	margin: 0.75rem 0 1rem 1rem;
+}
+
+ul,
+ol {
+	padding: 0;
+}
+
+p,
+ol,
+dl {
+	margin: @content-margin-top 0 0 0;
+}
+
+pre,
+code,
+.mw-code {
+	border: 1px solid var( --border-color-base );
+	background-color: var( --color-surface-2 );
+}
+
+code {
+	padding: 1px 4px;
+}
+
+pre,
+.mw-code {
+	padding: 1rem;
+	border-radius: var( --border-radius--large );
+	overflow: auto;
+}
+
+input,
+select,
+textarea {
+	padding: 5px;
+	border: 1px solid var( --border-color-base );
+	background-color: var( --color-surface-1 );
+	color: inherit;
+}
+
+fieldset {
+	padding: @content-margin-top / 2 20px;
+	border: 1px solid var( --border-color-base );
+	margin: @content-margin-top 0;
+}
+
+fieldset > table {
+	margin-top: 0 !important;
+}
+
+legend {
+	padding: 4px;
+	margin: 0;
+	color: var( --color-base--subtle );
+}
+
+textarea {
+	width: 98%;
+	padding: 11px;
+	border-radius: var( --border-radius--small );
+}
+
+blockquote {
+	margin: @content-margin-top var( --padding-page );
+	color: var( --color-base--subtle );
+
+	cite {
+		display: block;
+		margin-top: @content-margin-top * @content-scaling;
+
+		&:before {
+			content: '— ';
+		}
+	}
+}
+
+sup,
+sub {
+	line-height: 1;
+}
+
+dd {
+	margin-bottom: 0.1rem;
+	margin-left: 1rem;
+}
+
+td {
+	> p,
+	> ul,
+	> ol {
+		&:first-child {
+			margin-top: 0; // Remove margin for the first element in td
+		}
+	}
+}
+
+a {
+	color: var( --color-link );
+	text-decoration: none;
+
+	&:not( [ href ] ) {
+		cursor: pointer;
+		/* Always cursor:pointer even without href */
+	}
+
+	&:hover {
+		color: var( --color-link--hover );
+	}
+
+	&:active {
+		color: var( --color-link--active );
+	}
+
+	&.new {
+		color: var( --color-link-new ); // Override visited
+
+		&:hover {
+			color: var( --color-link-new--hover );
+		}
+
+		&:active {
+			color: var( --color-link-new--active );
+		}
+	}
+
+	&.mw-selflink {
+		color: inherit;
+		font-weight: bold;
+		text-decoration: inherit;
+
+		&:hover {
+			cursor: inherit;
+			text-decoration: inherit;
+		}
+
+		&:active {
+			color: inherit;
+		}
+	}
+}
+
+tbody {
+	width: 100%;
+}
+
+.mw-indicators {
+	white-space: nowrap;
+}
+
+.mw-editfont-monospace, .mw-editfont-sans-serif, .mw-editfont-serif {
+	font-size: 13.5px !important;
+}
+
+.client-js .section-indicator {
+	display: none;
+}
+
+#p-notifications {
+	display: none;
+}
+
+#pt-notifications {
+	display: block;
+}
+
+.comment {
+	color: var( --color-base--subtle );
+}
+
+.error {
+	background-color: var( --background-color-destructive );
+}
+
+.nowrap {
+	white-space: nowrap;
+}
+
+.mw-pager-navigation-bar {
+	font-size: 0;
+	display: flex;
+	justify-content: center;
+	padding: 6px;
+	color: var( --color-base--subtle );
+	margin: auto;
+	margin-top: 15px;
+
+	span, a {
+		display: inline-block;
+		color: var( --color-base );
+		padding: 0.25rem 0.75rem;
+		border: 1px solid var( --border-color-base );
+		border-radius: var( --border-radius--small );
+		margin: 0.25rem;
+		background-color: var( --color-surface-0 );
+		font-size: 0.85rem;
+	}
+}
+
+span.mw-numlink {
+	background-color: var( --color-moetheme ) !important;
+	color: #fff !important;
+}
+
+.mw-numlink, .mw-pager-navigation-bar a {
+	&:hover {
+		color: var( --color-moetheme );
+		border-color: var( --color-moetheme );
+		overflow: hidden;
+
+		&:after {
+			transform: translateX( 40px );
+			filter: drop-shadow( -40px 0 var(--color-moetheme) );
+		}
+	}
+
+	&:active {
+		background-color: var( --background-color-moetheme--active ) !important;
+	}
+}
+
+.mw-prevlink, .mw-firstlink, .mw-nextlink, .mw-lastlink {
+	font-size: 0 !important;
+
+	&::after {
+		display: inline-block;
+		width: 0.6rem;
+		height: 1.5rem;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: contain;
+		content: '';
+	}
+
+	span& {
+		&::after {
+			opacity: 45%;
+		}
+	}
+}
+
+.mw-nextlink {
+	order: 2;
+}
+
+.mw-lastlink {
+	order: 3;
+}
+
+.mw-userlink {
+	color: var( --color-base--emphasized );
+	opacity: 90%;
+}
+
+.mw-pager-navigation-bar:has( span.mw-prevlink + span.mw-nextlink ) {
+	display: none !important;
+}
+
+a.mw-usertoollinks-talk, a.mw-usertoollinks-contribs, a.mw-usertoollinks-block {
+	font-size: 0 !important;
+}
+
+a.mw-usertoollinks-talk, a.mw-usertoollinks-contribs, a.mw-usertoollinks-block {
+	&::after {
+		display: inline-block;
+		width: 1rem;
+		height: 0.75rem;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: contain;
+		content: '';
+		opacity: var( --opacity-icon-base );
+	}
+}
+
+.mw-userlink + .mw-usertoollinks,
+.mw-changeslist-line-inner-userLink + .mw-changeslist-line-inner-userTalkLink .mw-usertoollinks {
+	opacity: 0;
+	width: 0; /* So that the invisible box doesn't cover other things */
+	overflow: hidden; /* So that the invisible box doesn't cover other things */
+	position: absolute;
+}
+
+.mw-userlink:focus-within + .mw-usertoollinks,
+.mw-userlink:hover + .mw-usertoollinks,
+.mw-usertoollinks:hover,
+.mw-usertoollinks:focus-within,
+.mw-changeslist-line-inner-userLink:focus-within + .mw-changeslist-line-inner-userTalkLink .mw-usertoollinks,
+.mw-changeslist-line-inner-userLink:hover + .mw-changeslist-line-inner-userTalkLink .mw-usertoollinks,
+.mw-changeslist-line-inner-userTalkLink:hover .mw-usertoollinks,
+.mw-changeslist-line-inner-userTalkLink:focus-within .mw-usertoollinks{
+	opacity: 1;
+	width: auto; /* Reset from the width:0 above */
+	box-shadow: 0 0 10px silver;
+	z-index: 9999;
+	background: white;
+	border: 1px solid silver;
+	border-top: 1px solid #a1cef5;
+	margin: 0 0 0 -5px;
+	padding: 0 10px;
+}
+
+.mw-changeslist-line-inner-userLink:before {
+	content: ' [ ';
+}
+
+.mw-changeslist-line-inner-userLink:after {
+	content: '\00A0] ';
+}
+
+.moeskin-button {
+	padding: 0;
+	border: 0;
+	appearance: none;
+	background: transparent;
+	cursor: pointer;
+}
+
+.mw-message-box {
+	overflow: hidden;
+	padding: 0.5rem 1rem;
+	border-radius: var( --border-radius--small );
+	background-color: var( --color-surface-2 );
+	/* Standard property is `overflow-wrap`*/
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+
+	/* Ensure box inner spacing is not all over the place no matter what element is only child. */
+	> :only-child {
+		margin: 0;
+	}
+
+	// Formerly provided by mw-warning-with-logexcerpt, now available for all messageboxes.
+	&-error {
+		background-color: var( --background-color-destructive );
+	}
+
+	&-warning {
+		background-color: var( --background-color-warning );
+	}
+
+	&-success {
+		background-color: var( --background-color-success );
+	}
+}

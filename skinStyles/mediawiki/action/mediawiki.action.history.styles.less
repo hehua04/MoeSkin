@@ -1,0 +1,188 @@
+/*
+ * MoeSkin - Page History Styles
+*/
+
+@import '../../../resources/mixins.less';
+@import '../../../resources/variables.less';
+
+#mw-history-compare {
+	margin: @content-margin-top 0;
+}
+
+.mw-history-compareselectedversions {
+	align-items: center;
+	justify-content: space-between;
+	margin: @content-margin-top 0;
+	font-size: @ui-menu-text;
+}
+
+#pagehistory {
+	margin: 0;
+	list-style: none;
+
+	li {
+	.moeskin-list-li();
+
+		&.selected {
+			color: var( --color-base );
+			outline: 0;
+
+			&.before {
+				background-color: var( --background-color-moetheme--active );
+			}
+
+			&.after {
+				background-color: var( --background-color-moetheme--hover );
+			}
+		}
+	}
+}
+
+.mw-changeslist-separator,
+.history-size.mw-diff-bytes {
+	display: none !important;
+}
+
+@media ( max-width: @width-breakpoint-tablet ) {
+	#pagehistory [type='checkbox'], 
+	#pagehistory [type='radio'] ,
+	.mw-history-legend,
+	.mw-history-compareselectedversions,
+	.history-size.mw-diff-bytes {
+		display: none !important;
+	}
+
+	.history-user {
+		position: absolute;
+		left: 88px;
+		display: block;
+		white-space: nowrap;
+	}
+
+	.mw-changeslist-links:not( :first-of-type ) {
+		margin-left: 34px;
+	}
+
+	.comment {
+		margin-top: -1.5em;
+	}
+
+	.mw-tag-markers {
+		display: inline !important;
+	}
+
+	.newpage, .minoredit, .botedit {
+		position: absolute;
+		left: 1em;
+		top: 3em;
+	}
+
+	.mw-diff-bytes {
+		display: block !important;
+		width: 6.65em;
+		text-align: end;
+		transform: initial !important;
+	}
+}
+
+@media ( min-width: @width-breakpoint-tablet ) {
+	.mw-history-compareselectedversions {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.mw-changeslist-links {
+		display: none !important;
+	}
+
+	#pagehistory [type='radio']:first-of-type {
+		display: none;
+	}
+
+	.moeskin-animations-ready #pagehistory [type='radio']:first-of-type {
+		display: block;
+	}
+
+	#pagehistory li.before input[name='oldid'], #pagehistory li.after input[name='diff'] {
+		display: none !important;
+	}
+
+	#pagehistory li {
+		display: flex;
+		gap: 5px;
+	}
+
+	.mw-history-histlinks > span {
+		opacity: 90%;
+	}
+
+	.mw-history-histlinks.mw-changeslist-links {
+		order: 1;
+		margin-right: 15px;
+		display: inline-block !important;
+	}
+
+	a.mw-changeslist-date {
+		order: 2;
+	}
+
+	#pagehistory .history-user {
+		order: 3;
+		width: 100px;
+		margin-left: 1em;
+	}
+
+	.mw-diff-bytes {
+		order: 4;
+		width: 80px;
+		margin-left: -0.5em;
+	}
+
+	abbr.minoredit {
+		order: 5;
+	}
+
+	.comment {
+		order: 5;
+		padding-left: 20px;
+		padding-right: 20px;
+		flex-grow: 100;
+		margin-left: -10px;
+	}
+
+	.mw-tag-markers {
+		order: 6;
+		flex-grow: 0;
+		right: 28px !important;
+		top: 9px;
+		display: block;
+	}
+
+	.mw-comment-none {
+		position: inherit !important;
+		height: auto;
+	}
+
+	.mw-tag-markers .mw-tag-marker {
+		display: -webkit-inline-box;
+		display: inline-block;
+	}
+
+	#pagehistory [type='checkbox'], #pagehistory [type='radio'] {
+		height: 13px;
+		order: 7;
+		right: 5px;
+		position: absolute;
+	}
+
+	.mw-changeslist-links:before,
+	.mw-changeslist-links:after {
+		content: ' | ' !important;
+	}
+}
+
+.skin-moeskin-dark {
+	#pagehistory li.selected a {
+		color: @color-accent90;
+	}
+}

@@ -1,0 +1,28 @@
+#moeskin-global-toolbar {
+	display: block;
+	z-index: 6;
+	position: fixed;
+	right: 0;
+	bottom: 1.8rem;
+
+	.toolbar-inner-container {
+		background-color: var( --color-moetheme );
+		padding: .5rem 3.3rem .5rem 1.1rem;
+		border-radius: 100vh 0 0 100vh;
+		white-space: nowrap;
+	}
+
+	.toolbar-link {
+		color: #fff;
+		font-size: 13px;
+		margin-right: .5rem;
+		padding-right: .5rem;
+		border-right: 1px solid #fff;
+	}
+}
+
+@media ( max-width: @width-breakpoint-tablet ) {
+	#moeskin-global-toolbar {
+		display: none;
+	}
+}

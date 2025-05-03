@@ -1,0 +1,52 @@
+/*
+ * Fonts used:
+ *
+ * Name: Roboto VF
+ * Version: v3.004
+ * Link: https://github.com/TypeNetwork/Roboto
+*/
+
+/* Font directory */
+@font-directory: 'fonts/';
+
+/* Latin (Basic Latin + Latin-1 Supplement ) */
+@font-face {
+	font-family: 'Roboto';
+	font-style: normal;
+	/* stylelint-disable font-weight-notation */
+	font-weight: 100 900;
+	/* stylelint-enable font-weight-notation */
+	src: url( '@{font-directory}RobotoVF-latin.woff2' ) format( 'woff2-variations' );
+	unicode-range: U+0000-00FF;
+}
+
+@font-face {
+	font-family: 'Roboto';
+	font-style: italic;
+	/* stylelint-disable font-weight-notation */
+	font-weight: 100 900;
+	/* stylelint-enable font-weight-notation */
+	src: url( '@{font-directory}Roboto-ItalicVF-latin.woff2' ) format( 'woff2-variations' );
+	unicode-range: U+0000-00FF;
+}
+
+/* Cyrillic (Cyrillic + Cyrillic Supplement) */
+@font-face {
+	font-family: 'Roboto';
+	font-style: normal;
+	/* stylelint-disable font-weight-notation */
+	font-weight: 100 900;
+	/* stylelint-enable font-weight-notation */
+	src: url( '@{font-directory}RobotoVF-cyrillic.woff2' ) format( 'woff2-variations' );
+	unicode-range: U+0400-052F;
+}
+
+@font-face {
+	font-family: 'Roboto';
+	font-style: italic;
+	/* stylelint-disable font-weight-notation */
+	font-weight: 100 900;
+	/* stylelint-enable font-weight-notation */
+	src: url( '@{font-directory}Roboto-ItalicVF-cyrillic.woff2' ) format( 'woff2-variations' );
+	unicode-range: U+0400-052F;
+}

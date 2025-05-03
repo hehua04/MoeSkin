@@ -1,0 +1,279 @@
+@width-search-bar: 480px;
+
+.moeskin-search {
+	--width-search-bar: @width-search-bar;
+	--height-search-bar: ~'calc( var( --height-header ) - var( --margin-header ) * 2.2 )';
+
+	&__card {
+		position: absolute;
+		top: 0;
+		right: 0;
+		display: flex;
+		width: var( --width-search-bar );
+		max-width: ~'calc(100vw - var( --padding-page ) )';
+		height: var( --height-search-bar );
+		padding-right: var( --size-button--header ); // reserve space for close button
+		margin: var( --margin-header ) var( --padding-header );
+		gap: 0.25rem;
+		.moeskin-card();
+		.moeskin-card-hide( top right, X, false );
+
+		/**
+		 * Loading indicator for searchbox
+		 * See common/progressbar.less
+		 **/
+		&.moeskin-loading:after {
+			position: absolute;
+			top: 100%;
+			--delay-progress-bar: 500ms;
+			--height-progress-bar: 2px;
+			z-index: 999;
+			display: block;
+			width: 100%;
+			border: none;
+			height: var( --height-progress-bar );
+			box-sizing: border-box;
+			border-radius: 0 0 var( --border-radius--large ) var( --border-radius--large );
+			animation: progress-bar
+				1200ms
+				linear
+				var( --delay-progress-bar )
+				infinite
+				alternate;
+			background: /*image*/ linear-gradient( 90deg, var( --color-moetheme ) 0%, var( --color-moetheme ) 100% )
+				-10% 0 ~'/' 0 var( --height-progress-bar )
+				no-repeat,transparent;
+		}
+	}
+
+	&__icon,
+	&__random {
+		width: var( --height-search-bar );
+		height: var( --height-search-bar ); 
+
+		&:after {
+			display: block;
+			width: inherit;
+			height: inherit;
+			background-position: center;
+			background-repeat: no-repeat;
+			content: '';
+			opacity: var( --opacity-icon-base );
+			transition: var( --transition-hover );
+			transition-property: transform, opacity;
+		}
+	}
+
+	&__icon {
+		&:after {
+			background-size: 0.875rem; // Smaller because it is an indicator
+		}
+	}
+
+	&__formButton {
+		border-radius: var( --border-radius--medium );
+		transition: var( --transition-hover );
+		transition-property: background;
+		z-index: 1;
+
+		&:after {
+			transition: var( --transition-hover );
+			transition-property: opacity;
+		}
+
+		&:hover {
+			background-color: var( --background-color-quiet--hover );
+
+			&:after {
+				opacity: var( --opacity-icon-base--hover );
+			}
+		}
+
+		&:active {
+			background-color: var( --background-color-quiet--active );
+
+			&:after {
+				opacity: var( --opacity-icon-base--active );
+			}
+		}
+	}
+
+	&:focus-within {
+		.moeskin-search__icon:after {
+			opacity: var( --opacity-icon-base--hover );
+		}
+	}
+
+	&__clear {
+		cursor: pointer;
+		padding: 0.65em 0.35em;
+
+		&:after {
+			background-image: url( ./images/clear.svg ); 
+			display: block;
+			width: 1em;
+			height: 1em;
+			content: '';
+			opacity: var( --opacity-icon-base );
+			background-size: 1rem;
+		}
+	}
+
+	&__random {
+		&:after {
+			background-size: 1.125rem;
+			transition-property: opacity, transform;
+		}
+
+		&:hover:after {
+			transform: rotate( 30deg );
+		}
+	}
+
+	#searchInput {
+		flex-grow: 1;
+		padding: 0;
+		border: 0; // Cancel default border
+		appearance: none;
+		background: transparent; // Cancel default background
+		font-size: 0.8125rem;
+
+		&:focus {
+			outline: 0;
+			// The search suggestion pop-up indicates for focus state
+			// border-color: var( --color-moetheme );
+			// box-shadow: inset 0 0 0 1px var( --color-moetheme );
+		}
+
+		// Remove browser native clear all button in search field
+		&::-webkit-search-cancel-button {
+			-webkit-appearance: none;
+		}
+	}
+}
+
+@keyframes progress-bar {
+	0% {
+		background-position: -10% 0;
+		background-size: 0 var( --height-progress-bar );
+	}
+
+	30% {
+		background-position: -10% 0;
+		background-size: 30% var( --height-progress-bar );
+	}
+
+	70% {
+		background-position: 110% 0;
+		background-size: 30% var( --height-progress-bar );
+	}
+
+	100% {
+		background-position: 110% 0;
+		background-size: 0 var( --height-progress-bar );
+	}
+}
+
+// Checkbox hack
+#moeskin-search__checkbox:checked {
+	~ .moeskin-search__card {
+		.moeskin-card-show( false );
+	}
+}
+
+.skin-moeskin-dark {
+	.moeskin-search {
+		&__icon,
+		&__random,
+		&__clear {
+			&:after {
+				filter: invert( 1 ) hue-rotate( 180deg );
+			}
+		}
+	}
+}
+
+.moeskin-animations-ready {
+	.moeskin-search__card {
+		.moeskin-card-transition();
+		will-change: auto;
+	}
+}
+
+// MAGIC
+// TODO: Don't hardcode this
+@media ( max-width: ( @width-search-bar + 120px ) ) {
+	.moeskin-search__card {
+		left: 0;
+		width: auto;
+
+		&:before {
+			position: fixed;
+			z-index: -1; // Behind form
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			display: block;
+			background: rgba( 0, 0, 0, 0.3 );
+			content: '';
+		}
+
+		// Remove searchbox open animation on mobile
+		// But keep suggestion animation
+		// So user can get to search instantly
+		.moeskin-animations-ready & {
+			transition: none;
+		}
+	}
+}
+
+@media ( max-width: @width-breakpoint-tablet ) {
+	// Not great but works for now
+	#mw-searchoptions {
+		overflow: auto;
+		max-height: 20vh;
+	}
+
+	.mw-search-createlink,
+	.mw-search-exists {
+		max-width: none;
+		float: none;
+	}
+}
+
+@media ( min-width: @width-breakpoint-desktop ) {
+	.moeskin-search {
+		z-index: -1;
+
+		&__card {
+			margin: auto;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			pointer-events: all;
+			opacity: 1;
+			transform: none;
+			visibility: visible;
+			padding-right: 0;
+			box-shadow: 0 1px 2px 1px rgba(0, 0, 0, .01), 0 0 2px rgba(0, 0, 0, .085);
+		}
+
+		&__card:hover {
+			opacity: 1 !important;
+		}
+
+		&__button {
+			display: none;
+		}
+	}
+
+	.is-at-top .moeskin-search__card {
+		opacity: 93%;
+	}
+
+	.moeskin-search__card--expanded .moeskin-search__card {
+		opacity: 1;
+	}
+}

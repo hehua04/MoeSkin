@@ -1,0 +1,19 @@
+{{!
+	string msg-moeskin-drawer-toggle The label used by the drawer button.
+}}
+<div class="moeskin-drawer__button moeskin-header__button">
+	<div class="moeskin-drawer__buttonIcon moeskin-header__buttonIcon">
+		<div></div>
+		<div></div>
+		<div></div>
+	</div>
+	{{>Header__logo}}
+	<label
+		id="moeskin-drawer__buttonCheckbox"
+		class="mw-checkbox-hack-button moeskin-header__buttonCheckbox"
+		for="moeskin-drawer__checkbox"
+		title="{{msg-moeskin-drawer-toggle}}"
+		aria-hidden="true">
+		<span>{{msg-moeskin-drawer-toggle}}</span>
+	</label>
+</div>

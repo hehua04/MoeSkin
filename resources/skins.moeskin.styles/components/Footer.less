@@ -1,0 +1,139 @@
+.last-modified-bar {
+	background: var( --color-moetheme );
+
+	&-content {
+		display: flex;
+		max-width: @footer-width;
+		align-items: center;
+		padding: 12px var( --padding-page );
+		margin: 0 auto;
+	}
+
+	&-icon {
+		width: 20px;
+		height: 20px;
+		margin-right: @icon-padding;
+		background-position: center;
+		background-repeat: no-repeat;
+		opacity: var( --opacity-icon-base );
+	}
+
+	&-text {
+		color: #fff;
+		opacity: var( --opacity-icon-base );
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+
+		a {
+			margin-right: 5px;
+		}
+	}
+}
+
+.mw-footer {
+	background: var( --color-surface-1 );
+	opacity: 93%;
+	color: var( --color-base--subtle );
+	border-top: 1px solid var( --color-moetheme );
+	clear: both;
+	direction: ltr;
+	font-size: 0.875rem;
+	line-height: 1.55;
+
+	ul {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0;
+	}
+
+	li {
+		list-style: none;
+	}
+}
+
+#footer {
+	&-content {
+		max-width: @footer-width;
+		padding: @margin-side* 1.5 var( --padding-page );
+		margin: 0 auto;
+	}
+
+	&-sitetitle {
+		margin: @margin-side* 0.75 0 @margin-side* 0.5 0;
+		font-size: 2rem;
+		color: var( --color-base );
+
+		img.mw-logo-wordmark {
+			width: auto;
+			height: 20px;
+			filter: invert( 1 ) hue-rotate( 180deg );
+		}
+	}
+
+	&-places {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0 -@margin-side !important;
+
+		li a {
+			display: block;
+			padding: @margin-side / 2 ~'calc( var( --padding-page) / 1.2 )';
+			color: var( --color-base--subtle );
+
+			&:hover,
+			&:active,
+			&:focus {
+				color: var( --color-base );
+				text-decoration: none;
+			}
+		}
+	}
+
+	&-info {
+		margin-top: @margin-side / 2;
+		font-size: 0.75rem;
+		opacity: 0.5;
+
+		p {
+			width: 100%;
+			padding-top: @margin-side / 2;
+			border-top: 1px solid var( --border-color-base );
+		}
+
+		&-lastmod {
+			display: none;
+		}
+	}
+
+	&-desc {
+		margin: @margin-side / 2 0;
+	}
+
+	&-icons {
+		display: none;
+		margin: 0 -@margin-side / 2;
+
+		li {
+			display: flex; // Horizontally aligned with there are two icons in the same li
+		}
+
+		a {
+			display: flex;
+			align-items: center;
+			padding: 15px 10px;
+		}
+	}
+}
+
+@media ( min-width: 870px ) {
+	#footer-bottom {
+		display: block;
+	}
+
+	#footer-icons {
+		display: flex;
+		margin: -45px -10px;
+		float: right;
+	}
+}

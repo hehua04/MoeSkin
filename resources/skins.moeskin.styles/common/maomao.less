@@ -1,0 +1,17 @@
+@media ( min-width: @width-breakpoint-tablet ) {
+	#maomao {
+		position: fixed; 
+		z-index: 10;
+		bottom: 25px; 
+		right: -5px; 
+		width: 57px; 
+		height: 68px; 
+		background-image: url(./images/mao-open.svg); 
+		background-size: cover; 
+
+		&:hover {
+			transition: all 0.1s;
+			background-image: url(./images/mao-close.svg); 
+		}
+	}
+}

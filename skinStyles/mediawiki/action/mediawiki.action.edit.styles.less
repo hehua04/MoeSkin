@@ -1,0 +1,34 @@
+/*
+ * MoeSkin
+ *
+ * SkinStyles for MediaWiki core
+ * Module: mediawiki.action.edit.styles.less
+ *
+*/
+
+// Needed the specificity
+.skin-moeskin {
+	.mw-editform {
+		#wpTextbox1 {
+			padding: 13px;
+			width: 97.5%;
+			border-radius: 12px 12px 0 0;
+			background-color: var( --color-surface-0 );
+
+			&:focus {
+				outline: 0;
+			}
+		}
+
+		.editOptions {
+			border-color: var( --border-color-base );
+			background-color: var( --color-surface-2 );
+			color: var( --color-base );
+		}
+
+		#editpage-copywarn {
+			color: var( --color-base--subtle );
+			font-size: 0.8125rem;
+		}
+	}
+}

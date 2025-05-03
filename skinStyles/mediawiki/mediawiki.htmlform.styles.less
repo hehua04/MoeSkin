@@ -1,0 +1,54 @@
+/*
+ * MoeSkin
+ *
+ * SkinStyles for MediaWiki
+ * Module: mediawiki.htmlform.styles
+ *
+*/
+
+.mw-htmlform {
+	&-field {
+		&-HTMLCheckField,
+		&-HTMLTextField {
+			label {
+				display: inline-block;
+			}
+		}
+
+		&-HTMLCheckField {
+			// Horizontal label, like in upload form
+			input + label {
+				margin-left: 0.5rem;
+			}
+		}
+
+		&-HTMLTextField {
+			// Vertical label, like in create account
+			> label {
+				margin-bottom: 0.25rem;
+				color: var( --color-base--subtle );
+				font-size: 0.875rem;
+				letter-spacing: 0.05em;
+			}
+
+			// Horizontal label, like in upload form
+			td.mw-label > label {
+				margin-right: 0.5rem;
+			}
+		}
+
+		&-HTMLInfoField {
+			color: var( --color-base--subtle );
+		}
+	}
+
+	&-invalid-input td.mw-input input {
+		border-color: var( --color-destructive );
+	}
+}
+
+.htmlform-tip {
+	color: var( --color-base--subtle );
+	font-size: 0.8125rem;
+	letter-spacing: 0.025em;
+}

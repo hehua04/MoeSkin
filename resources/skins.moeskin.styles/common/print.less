@@ -1,0 +1,103 @@
+// Hide elements that are not needed in print
+.mw-header,
+#moeskin-global-sitenotice,
+#moeskin-global-toolbar,
+#moeskin-page-tools-container,
+.mw-indicators,
+.page-actions,
+#toc,
+.section-toggle,
+.client-js .section-indicator,
+.client-js .mw-rcfilters-head,
+.mw-editsection,
+.mw-changeslist-legend,
+.catlinks,
+.mw-collapsible-toggle,
+a.extiw:after,
+a.external:after,
+#flowthread,
+#footer-places,
+#footer-icons {
+	display: none !important;
+}
+
+a {
+	color: #000;
+}
+
+.firstHeading {
+	margin: 0;
+}
+
+#siteSub {
+	color: @color-base30;
+}
+
+.mw-body-header {
+	margin-bottom: @content-margin-top;
+}
+
+.printfooter {
+	font-size: 14px;
+}
+
+.mw-footer {
+	color: @color-base30;
+	font-size: 14px;
+}
+
+#footer-content {
+	padding-top: 10px;
+	border-top: 1px solid;
+	margin-top: 20px;
+}
+
+#footer-info {
+	ul {
+		padding: 0;
+		list-style: none;
+	}
+}
+
+// Table of contents
+.client-js .section-heading, .client-js .section-subheading {
+	gap: 0 !important;
+}
+
+table.wikitable tr, .mw-datatable tr {
+	display: block !important;
+}
+
+.thumb {
+	margin-top: @content-margin-top;
+	margin-bottom: @content-margin-top;
+}
+
+// Float styles
+div.tleft,
+div.floatleft,
+table.floatleft {
+	margin-right: 1.4rem;
+	clear: left;
+	float: left;
+}
+
+div.tright,
+div.floatright,
+table.floatright {
+	margin-left: 1.4rem;
+	clear: right;
+	float: right;
+}
+
+// Gallery
+.skin-moeskin {
+	ul.mw-gallery-packed {
+		&-hover,
+		&-overlay {
+			div.thumb:after {
+				display: none;
+			}
+		}
+	}
+}

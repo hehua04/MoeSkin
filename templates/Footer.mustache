@@ -1,0 +1,37 @@
+ {{!
+	@typedef object footerItem
+	@prop string id of list item element
+	@prop string html of list item
+	@prop footerItem[] items
+
+	@typedef object footerRow
+	@prop string className of list element
+	@prop string id of list element
+	@prop footerItem[] array-items
+
+	footerRow[] array-footer-rows iterable list of footer rows
+	footerRow[] array-footer-icons iterable list of footer icons
+	string msg-sitetitle
+	string msg-moeskin-footer-desc
+}}
+
+<footer class="mw-footer" {{{html-user-language-attributes}}}>
+	{{#html-lastmodified}}
+	<a href="javascript:window.location.href=window.location.href.split('#')[0]+'&action=history';">
+	<div class="last-modified-bar" id="last-modified-bar">
+		<div class="last-modified-bar-content">
+			<div class="last-modified-bar-icon"></div>
+			<div class="last-modified-bar-text">{{{.}}}</div>
+		</div>
+	</div>
+	</a>
+	{{/html-lastmodified}}
+	<div id="footer-content">
+		<h2 id="footer-sitetitle" class="mw-wiki-title"><div class="mw-logo-wordmark">{{msg-sitetitle}}</div></h2>
+		<p id="footer-desc">{{{msg-moeskin-footer-desc}}}</p>
+		{{#data-moeskin-places}}{{>Footer__row}}{{/data-moeskin-places}}
+		<nav id="footer-info"><p id="footer-tagline">{{{msg-moeskin-footer-tagline}}}</p></nav>
+		{{#data-moeskin-icons}}{{>Footer__row}}{{/data-moeskin-icons}}
+	</div>
+</footer>
+

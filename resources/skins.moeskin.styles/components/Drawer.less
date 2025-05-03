@@ -1,0 +1,128 @@
+.moeskin-drawer {
+	&__card {
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		overflow: auto;
+		max-height: ~'calc(100vh - var( --margin-header ) * 2 )';
+		margin: var( --margin-header ) var( --padding-header );
+		overscroll-behavior: contain;
+		user-select: none;
+		-webkit-user-select: none;
+		.moeskin-card();
+		.moeskin-card-hide( top left );
+		.moeskin-card-transition();
+	}
+
+	&__header {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: var( --size-button--header ) var( --padding-page ) 0.8rem; // TODO: Replace with space token
+		border-bottom: 1px solid var( --border-color-base );
+		gap: 1.25rem;
+	}
+
+	// Keep aspect ratio
+	&__logo img {
+		width: auto;
+		height: 3rem;
+	}
+
+	&__siteinfo {
+		.mw-logo-wordmark {
+			margin-top: 0.375rem;
+			color: var( --color-base--emphasized );
+			font-size: 1.5rem;
+		}
+	}
+
+	&__menu {
+		display: grid;
+		justify-content: center;
+		padding: 0.625rem 0.625rem 1.25rem 0.625rem; // TODO: Replace with space token
+		font-size: 0.875rem; // TODO: Make this a variable
+		gap: 0.625rem; // TODO: Replace with space token
+		grid-template-columns: repeat( auto-fit, 15rem );
+
+		a {
+			.menu-item-link;
+			padding: 0.625rem 1.25rem; // TODO: Make this a variable
+			border-radius: var( --border-radius--small );
+
+			&:after {
+				.resource-loader-list-icon;
+				display: block;
+				background-size: contain;
+				opacity: var( --opacity-icon-base );
+				transition: var( --transition-hover );
+				transition-property: opacity;
+			}
+
+			&:hover {
+				.menu-item-link-hover;
+
+				&:after {
+					opacity: var( --opacity-icon-base--hover );
+				}
+			}
+
+			&:active {
+				.menu-item-link-active;
+
+				&:after {
+					opacity: var( --opacity-icon-base--active );
+				}
+			}
+		}
+	}
+}
+
+// Checkbox hack
+#moeskin-drawer__checkbox:checked {
+	~ .moeskin-drawer__card {
+		.moeskin-card-show;
+	}
+
+	.moeskin-search__button {
+		border-right: none;
+	}
+}
+
+.skin-moeskin-dark {
+	// Icons in nav links
+	.moeskin-drawer__menu a:after {
+		filter: invert( 1 ) hue-rotate( 180deg );
+	}
+}
+
+@media ( max-width: 550px ) {
+	.moeskin-drawer {
+		&__card {
+			right: 0;
+			height: 96vh;
+			transition: none;
+		}
+	}
+
+	#n-randompage {
+		display: block !important;
+	}
+}
+
+@media ( min-width: 550px ) {
+	.moeskin-drawer {
+		&__logo img {
+			// Bigger logo
+			height: 5rem;
+		}
+
+		&__siteinfo {
+			.mw-logo-wordmark {
+				display: none;
+			}
+		}
+
+	}
+}

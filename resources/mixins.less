@@ -1,0 +1,241 @@
+/*
+ * MoeSkin - Mixins
+*/
+
+.moeskin-card( @border-radius: true ) {
+	background-color: var( --color-surface-1 );
+	box-shadow: var( --box-shadow-dialog );
+
+	& when ( @border-radius ) {
+		border-radius: var( --border-radius--medium ) ;
+	}
+}
+
+// Collaspe animation setup
+.moeskin-card-hide( @position, @axis: '', @fadeChildren: true ) {
+	opacity: 0;
+	pointer-events: none;
+	transform: ~'scale@{axis}( 0 )';
+	transform-origin: @position;
+	visibility: hidden;
+
+	& when ( @fadeChildren ) {
+		> * {
+			opacity: 0;
+		}
+	}
+}
+
+// Expand animiation setup
+// When using fadeChildren, the child elements need to have
+// opacity: 0 set manually
+.moeskin-card-show( @fadeChildren: true ) {
+	opacity: 1;
+	pointer-events: auto;
+	transform: none;
+	// HACK: So that visiblity won't wait 200ms to become visible
+	transition-delay: 0ms;
+	visibility: visible;
+
+	& when ( @fadeChildren ) {
+		> * {
+			.moeskin-card-content-show;
+		}
+	}
+}
+
+// Fade content when users open the menu
+// But GTFO instantly when they close the menu
+.moeskin-card-content-show() {
+	opacity: 1;
+	transition: var( --transition-menu );
+	transition-property: opacity;
+	will-change: opacity;
+}
+
+// Transition animation
+.moeskin-card-transition() {
+	transition: var( --transition-menu );
+	transition-property: transform, opacity, visibility;
+	will-change: transform, opacity, visibility;
+}
+
+// Set content to be at the center
+.content-center() {
+	max-width: var( --width-layout );
+	margin-right: auto;
+	margin-left: auto;
+}
+
+// List Style
+.moeskin-list() {
+	position: relative;
+	margin-left: 27px !important;
+	list-style: none;
+	font-size: 0.875rem;
+
+	&::before {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: -24px;
+		width: 1px;
+		background: var( --border-color-base--darker );
+		content: '';
+	}
+}
+
+.moeskin-list-li() {
+	overflow: hidden;
+	padding: 10px 0;
+	border-bottom: 1px solid var( --border-color-base ) !important;
+	font-size: 0.875rem;
+	transition: background 100ms ease;
+
+	&::before {
+ 		position: absolute;
+ 		left: -27px;
+		display: block;
+		width: 7px;
+		height: 7px;
+		border-radius: 100%;
+		margin-top: 8px;
+		background-color: var( --color-base--subtle );
+		content: '';
+	}
+
+	&:hover {
+		background-color: var( --background-color-quiet--hover );
+
+		&::before {
+			background-color: var( --color-base--emphasized );
+		}
+	}
+}
+
+// Prepare for RL icons
+.resource-loader-icon-link() {
+	display: block;
+	width: @icon-box-size;
+	height: @icon-box-size;
+}
+
+.resource-loader-icon-link-small() {
+	display: block;
+	width: @icon-size;
+	height: @icon-size;
+}
+
+.resource-loader-icon() {
+	position: absolute;
+	width: inherit;
+	height: inherit;
+	background-position: center;
+	background-repeat: no-repeat;
+	content: '';
+}
+
+.resource-loader-menu-icon() {
+	position: absolute;
+	width: @icon-box-size;
+	height: @icon-box-size;
+	background-position: center;
+	background-repeat: no-repeat;
+	content: '';
+}
+
+.resource-loader-list-icon() {
+	position: relative;
+	width: @icon-size;
+	height: @icon-size;
+	flex-shrink: 0;
+	align-self: center;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	content: '';
+}
+
+.menu-item-link() {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	color: var( --color-base );
+	font-weight: 450;
+	gap: 0.5rem;
+}
+
+.menu-item-link-hover() {
+	background-color: var( --background-color-moetheme--hover );
+	color: var( --color-base ) !important;
+}
+
+.menu-item-link-active() {
+	background-color: var( --background-color-moetheme--active );
+	color: var( --color-base ) !important;
+}
+
+// Button Styles
+.button-blue() {
+	background-color: var( --color-moetheme );
+	color: #fff !important;
+}
+
+.button-blue-hover() {
+	background-color: var( --color-moetheme--hover );
+}
+
+.button-blue-active() {
+	background-color: var( --color-moetheme--active );
+}
+
+.button-red() {
+	background-color: var( --color-destructive );
+	color: #fff !important;
+}
+
+.button-red-hover() {
+	background-color: var( --color-destructive--hover );
+}
+
+.button-red-active() {
+	background-color: var( --color-destructive--active );
+}
+
+// Gradient overflow
+.gradient-overflow(@position) {
+	position: fixed;
+	z-index: 3;
+	width: 100%;
+	height: @margin-side * 2;
+	background: @position;
+	content: '';
+}
+
+// Borrowed from Mediawiki core 1.35
+// “Clearfix Reloaded” Mixin
+// The mixin is used on a container with floating children.
+// Margin collapsing is a feature, not a bug, hence relying on `display: block` as default.
+// With `.mixin-clearfix( @collapse: false; );` you call it to let `margin`s not collapse.
+// See https://www.cssmojo.com/the-very-latest-clearfix-reloaded/
+// In future we might replace the `&:after` pseudo-element with
+// `display: flow-root;` altogether.
+// Support: Firefox 3.5+, Safari 4+, Chrome, Opera 15+, IE 8+
+.mixin-clearfix( @collapse: true ) {
+	&:after {
+		clear: both;
+		// Margin collapsing as feature. Apply it.
+		& when ( @collapse ) {
+			display: block;
+			content: '';
+		}
+	}
+	// Margin collapsing as bug. Prevent it.
+	& when not ( @collapse ) {
+		&:before,
+		&:after {
+			display: table;
+			content: '';
+		}
+	}
+}

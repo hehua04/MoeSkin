@@ -1,0 +1,171 @@
+/*
+ * MoeSkin
+ *
+ * SkinStyles for Special:Search
+ * Module: mediawiki.special.search.styles
+ *
+*/
+
+@import '../../../resources/variables.less';
+
+.mw-body-header {
+	border-bottom: none !important;
+	margin-bottom: -1rem !important;
+}
+
+.moeskin-search #searchInput {
+	visibility: hidden;
+}
+
+#mw-search-top-table {
+	display: flex;
+	justify-content: space-between;
+
+	// Fix weird space between input field and button
+	.oo-ui-actionFieldLayout .oo-ui-textInputWidget {
+		max-width: none;
+	}
+
+	.oo-ui-widget {
+		font-size: 1rem; // HACK: Override the 14px hack we use for OOUI
+	}
+}
+
+#mw-search-top-table div.oo-ui-actionFieldLayout {
+	position: fixed;
+	visibility: hidden;
+}
+
+.mw-search-profile-tabs {
+	background-color: transparent;
+	border: 0;
+	border-bottom: 1px solid var( --border-color-base );
+}
+
+.search-types {
+	padding: 0;
+	float: none;
+
+	ul {
+		margin: 0 !important; // Cancel out ul margin from common
+		display: flex;
+		gap: 30px;
+		overflow-x: auto;
+		white-space: nowrap;
+	}
+
+	li {
+		padding: 0;
+	}
+
+	a {
+		padding: 0.5rem 0rem;
+		border-bottom: 1px solid transparent;
+		font-size: 89%;
+		color: var( --color-base--subtle );
+	}
+
+	.current a {
+		border-color: var( --color-primary );
+		color: var( --color-primary );
+	}
+}
+
+.results-info {
+	padding: 0;
+	color: var( --color-base--subtle );
+	margin-top: 0.5rem !important;
+	font-size: 0.875rem;
+	white-space: nowrap;
+}
+
+.searchresults {
+	h2 {
+		padding-bottom: 0.5rem !important;
+		border-bottom: 1px solid var( --border-color-base ) !important;
+		margin-bottom: 0 !important;
+		color: var( --color-base--subtle ) !important;
+		font-size: 0.875rem !important;
+		font-weight: 400 !important;
+		letter-spacing: 0.05em !important;
+		margin-left: 0 !important;
+	}
+}
+
+#mw-searchoptions {
+	border-color: transparent;
+	padding-left: 0;
+	padding-right: 0;
+	border-radius: 0;
+	background-color: var( --color-surface-0 );
+	margin: 0.7rem 0;
+
+	h4 {
+		color: var( --color-base--subtle );
+		font-size: 0.875rem;
+		font-weight: 400;
+		letter-spacing: 0.05em;
+	}
+
+	.divider {
+		border-color: var( --border-color-base );
+	}
+}
+
+#mw-search-interwiki {
+	border-color: var( --border-color-base );
+}
+
+.searchdidyoumean {
+	font-size: 1rem;
+}
+
+.mw-search-results {
+	max-width: 100%;
+
+	li {
+		padding: 1rem 0;
+
+		a {
+			font-size: 1.13rem;
+		}
+	}
+}
+
+.mw-search-result {
+	font-size: 0.875rem;
+
+	&-heading {
+		a {
+			font-weight: 600;
+		}
+	}
+
+	&-data {
+		color: var( --color-base--subtle );
+		font-size: 0.875rem;
+	}
+}
+
+.searchmatch {
+	color: var( --color-base--emphasized );
+	font-weight: 600;
+
+	a & {
+		// If searchmatch is part of the link (usually title), use link color
+		color: inherit;
+	}
+}
+
+// Somehow got overridden
+.moeskin-body {
+	.search-types {
+		ul {
+			margin: 0;
+		}
+	}
+
+	.mw-search-results {
+		margin: 0;
+	}
+}

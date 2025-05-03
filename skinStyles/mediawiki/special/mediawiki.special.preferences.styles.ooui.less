@@ -1,0 +1,105 @@
+/*
+ * MoeSkin - Special Preferences
+*/
+
+@import '../../../resources/variables.less';
+
+.mw-prefs-tabs-wrapper.oo-ui-panelLayout-framed, .mw-prefs-tabs > .oo-ui-menuLayout-content > .oo-ui-indexLayout-stackLayout > .oo-ui-tabPanelLayout {
+	border-color: transparent;
+}
+
+.oo-ui-tabOptionWidget {
+	color: var( --color-base ) !important;
+	font-weight: normal !important;
+}
+
+.oo-ui-tabSelectWidget-framed {
+	background-color: transparent !important;
+	border-bottom: 1.5px solid var( --color-moetheme ) !important;
+}
+
+.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget {
+	background: var( --color-surface-3 );
+}
+
+.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget.oo-ui-widget-enabled:active {
+	background-color: var( --background-color-quiet--active ) !important;
+	color: var( --color-base--emphasized ) !important;
+}
+
+.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget.oo-ui-widget-enabled:hover {
+	background-color: var( --background-color-quiet--hover) !important;
+	color: var( --color-base--emphasized ) !important;
+}
+
+.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget.oo-ui-optionWidget-selected {
+	background-color: var( --color-moetheme ) !important;
+	color: #fff !important;
+}
+
+.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget.oo-ui-optionWidget-selected:hover {
+	background-color: var( --color-moetheme ) !important;
+	color: #fff !important;
+}
+
+.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget.oo-ui-optionWidget-selected:active {
+	background-color: var( --color-moetheme ) !important;
+	color: #fff !important;
+}
+
+.oo-ui-tabSelectWidget-framed .oo-ui-tabOptionWidget.oo-ui-optionWidget-selected .oo-ui-labelElement-label {
+	border-bottom-color: transparent !important;
+}
+
+.mw-special-Preferences .oo-ui-tabSelectWidget {
+	text-align: center;
+}
+
+.mw-prefs-buttons {
+	border-color: var( --border-color-base );
+	background-color: var( --color-surface-0 );
+	text-align: end;
+}
+
+.oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button {
+	border-color: var( --color-moetheme ) !important;
+	background-color: var( --color-moetheme ) !important;
+}
+
+.oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button:hover {
+	border-color: var( --color-moetheme--hover ) !important;
+	background-color: var( --color-moetheme--hover ) !important;
+}
+
+.oo-ui-buttonElement-framed.oo-ui-widget-enabled.oo-ui-flaggedElement-primary.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button:active {
+	border-color: var( --color-moetheme--active ) !important;
+	background-color: var( --color-moetheme--active ) !important;
+}
+
+#mw-input-wpemailauthentication {
+	background-color: var( --color-surface-3 );
+	border-color: var( --border-color-base--darker );
+	color: var( --color-base--emphasized );
+	font-size: 0.825rem;
+}
+
+.mw-prefs-buttons:before {
+	content: '请注意：您的设置可能需要一段时间才能生效。';
+	color: grey;
+ 	position: absolute;
+	font-size: small;
+	left: 0;
+	padding: 7px;
+}
+
+.mw-prefs-buttons:lang( zh-hans ):before {
+	content: '请注意：您的设置可能需要一段时间才能生效。';
+}
+
+.mw-prefs-buttons:lang( zh-hant ):before {
+	content: '請注意：您的設定可能需要一段時間才能生效。';
+}
+
+.mw-special-Preferences #moeskin-global-toolbar {
+	display: none;
+}

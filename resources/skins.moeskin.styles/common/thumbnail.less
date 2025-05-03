@@ -1,0 +1,48 @@
+figure,
+.thumb {
+	margin: @content-margin-top 0;
+
+	.thumbinner {
+		overflow: hidden; // needed for center to work
+		max-width: 100%;
+		margin: 0 auto;
+
+		a {
+			&.image {
+				max-width: inherit;
+				border-radius: var( --border-radius--small );
+				margin-right: 2px; // Counter the 2px space added by core
+			}
+
+			&:before {
+				content: none;
+			}
+
+			&.new {
+				display: block;
+				padding: @margin-side / 2;
+				border: 1px dashed var( --border-color-base--darker );
+				border-radius: var( --border-radius--small );
+				transition: var( --transition-hover );
+				transition-property: background, color;
+
+				&:hover {
+					background-color: var( --color-destructive--hover );
+					color: #fff;
+				}
+
+				&:active {
+					background-color: var( --color-destructive--active );
+					color: #fff;
+				}
+			}
+
+		}
+	}
+}
+
+figcaption,
+.thumbcaption {
+	margin: @content-margin-top / 2 0;
+	color: var( --color-base--subtle );
+}

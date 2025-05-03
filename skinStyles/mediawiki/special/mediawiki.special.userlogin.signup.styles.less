@@ -1,0 +1,236 @@
+/*
+ * MoeSkin - Sign Up
+*/
+
+@import '../../../resources/variables.less';
+
+:root {
+	--color-primary: var( --color-moetheme ) !important;
+	--color-primary--hover: var( --color-moetheme--hover ) !important;
+	--color-primary--active: var( --color-moetheme--active ) !important;
+}
+
+html {
+	overflow-y: hidden !important;
+}
+
+.mw-header,
+#moeskin-global-sitenotice,
+#moeskin-global-toolbar,
+#moeskin-page-tools-container,
+#maomao,
+.mw-footer {
+	display: none !important;
+}
+
+.mw-body {
+	opacity: 95% !important;
+	min-height: auto !important;
+	border-radius: 20px !important;
+}
+
+body:before {
+	display: none;
+}
+
+#moeskin-global-background {
+	top: 0 !important;
+	opacity: 30% !important;
+	background: url( ../../../resources/skins.moeskin.icons/Moegirl-wallpaper-fall-2019.png ) no-repeat center !important;
+}
+
+.mw-body-header {
+	margin-bottom: 0 !important;
+}
+
+.mw-ui-container {
+	// No need for float clear since we are using flex
+	&:after {
+		content: none;
+	}
+
+	#signupstart {
+		grid-area: message;
+	}
+
+	#userloginForm {
+		margin-right: 0;
+		grid-area: form;
+	}
+}
+
+.mw-body-content > .mw-ui-container {
+	display: grid;
+	gap: 0.5rem;
+	grid-template-areas: 'message'
+		'stats'
+		'form';
+}
+
+.mw-createacct-benefits {
+	&-container {
+		padding-bottom: 1.25rem;
+		border-bottom: 1px solid var( --border-color-base );
+		grid-area: stats;
+
+		h2 {
+			margin: 0 !important;
+			font-size: 1.3rem !important;
+			font-weight: 600;
+		}
+	}
+
+	&-list {
+		display: flex;
+		flex-wrap: wrap;
+		margin-top: 1.25rem;
+		gap: 1.25rem;
+
+		.mw-number-text {
+			min-height: auto;
+			padding-left: 3rem;
+			margin: 0;
+			background-size: 2.5rem;
+			color: var( --color-base--subtle );
+			font-size: 0.8125rem;
+			line-height: 1.25;
+			text-align: start;
+
+			h3 {
+				color: var( --color-base--emphasized );
+				font-family: var( --font-family-base );
+				font-size: 1.125rem;
+				font-weight: 600;
+				line-height: 1;
+				text-align: start;
+				padding-left: 0 !important;
+
+				&:before {
+					background-color: transparent !important;
+				}
+			}
+
+			p {
+				margin: 0.25rem 0 0 0;
+			}
+		}
+	}
+}
+
+.mw-htmlform-field-HTMLInfoField {
+	max-width: 450px;
+}
+
+.mw-htmlform-field-HTMLTextField > label {
+	color: var( --color-base--emphasized ) !important;
+}
+
+.mw-ui-vform {
+	width: auto !important;
+}
+
+.mw-ui-input, .mw-ui-button {
+	max-width: 300px !important;
+}
+
+
+.mw-message-box {
+	max-width: 450px;
+
+	&:not( #userlogin2 > .mw-message-box ) {
+		font-size: 90%;
+		padding-top: 0 !important;
+		background-color: var( --color-surface-0 ) !important;
+		padding: 0 !important;
+
+		.mw-message-box-error& {
+			color: var( --color-text-error );
+		}
+
+		.mw-message-box-warning& {
+			color: var( --color-text-warning );
+		}
+	}
+}
+
+@media ( max-width: @width-breakpoint-tablet ) {
+	html {
+		overflow-y: auto !important;
+	}
+
+	.mw-body {
+		margin-left: auto !important;
+		margin-right: auto !important;
+		padding: 30px !important;
+		background: transparent !important;
+	}
+
+	.page-actions {
+		display: none !important;
+	}
+
+	#moeskin-global-background {
+		opacity: 7% !important;
+	}
+
+	.mw-body-header {
+		border-bottom: none !important;
+	}
+}
+
+@media ( min-width: @width-breakpoint-tablet ) {
+	.mw-body-content > .mw-ui-container {
+		grid-template-areas: 'message message'
+			'form stats';
+	}
+
+	.mw-createacct-benefits {
+		&-container {
+			padding-top: 1rem;
+			padding-bottom: 0;
+			padding-left: 2rem;
+			border-bottom: 0;
+			border-left: 1px solid var( --border-color-base );
+
+			h2 {
+				margin-top: 2.4rem !important;
+				font-size: 1.7rem !important;
+				max-width: 12em;
+			}
+		}
+
+		&-list {
+			flex-direction: column;
+			margin-top: 2rem;
+
+			.mw-number-text {
+				padding-left: 5rem;
+				background-size: 4rem;
+
+				h3 {
+					font-size: 2rem;
+				}
+			}
+		}
+	}
+
+	#userloginForm:before {
+		width: 21em;
+		height: 13em;
+		bottom: 5em;
+		right: 7em;
+		border-radius: 0 20px 20px 0;
+		content: '';
+		position: absolute;
+		display: block;
+		background: url( ../../../resources/skins.moeskin.icons/heart.png );
+		background-size: cover;
+		background-position-x: 25%;
+	}
+
+	.skin-moeskin-dark {
+		#userloginForm:before {
+			opacity: 95%;
+		}
+	}
+}

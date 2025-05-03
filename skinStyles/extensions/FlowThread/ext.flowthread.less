@@ -1,0 +1,138 @@
+/*
+ * MoeSkin
+ *
+ * SkinStyles for Extension:FlowThread
+ * Module: ext.FlowThread
+ *
+*/
+
+#flowthread {
+	margin: 3em auto;
+	max-width: var( --width-layout );
+}
+
+.flowthread-btn {
+	top: -5px;
+	box-shadow: none !important;
+}
+
+.comment-container-top > div:not( .comment-thread ) {
+	background-color: var( --color-moetheme--hover );
+	color: #fff;
+	font-weight: bolder;
+}
+
+.comment-user, .comment-user a {
+	color: var( --color-base--subtle );
+}
+
+.comment-thread.comment-popular {
+ 	background-color: var( --background-color-moetheme--hover );
+	box-shadow: 0 1px 3px rgba( 18,18,18,0.1 );
+}
+
+.comment-thread {
+	border-top: 1px solid var( --border-color-base );
+}
+
+.comment-toolbar {
+	border-style: none solid solid;
+}
+
+.comment-container-top {
+	border: none;
+	padding-top: 2em;
+	border-top: 1px solid var( --border-color-base );
+}
+
+.comment-container-top > div:first-child {
+	height: 30px;
+	line-height: 30px;
+}
+
+.comment-replybox {
+	padding-top: 30px;
+	border-top: 1px solid var( --border-color-base );
+}
+
+.comment-reply::before, .comment-like::before, .comment-report::before, .comment-delete::before, .comment-recover::before {
+	opacity: 0.7;
+	width: 16px;
+	height: 12px;
+}
+
+.comment-avatar img {
+	border-radius: 50%;
+}
+
+.comment-post {
+	padding: 14px;
+}
+
+.comment-body textarea {
+	height: 70px;
+}
+
+.comment-body textarea:focus {
+	outline: none;
+	border-color: var( --color-moetheme--hover );
+}
+
+.comment-body textarea:focus ~ .comment-toolbar {
+	border-color: var( --color-moetheme--hover );
+}
+
+.comment-body textarea, .comment-preview, .comment-toolbar {
+	border-color: var( --border-color-base );
+	background: var( --color-surface-1 );
+}
+
+.comment-submit {
+	transition: all 0.2s ease-out;
+	right: 10px;
+	top: -10px;
+	background-color: var( --color-moetheme--hover );
+	text-shadow: none;
+	color: #fff;
+	font-weight: normal;
+	border-radius: 4px;
+	border: 1px solid var( --border-color-base );
+}
+
+.comment-preview {
+	min-height: 81px;
+}
+
+.comment-paginator {
+	display: none;
+}
+
+.flowthread-btn:hover {
+	box-shadow: none;
+}
+
+.comment-submit:hover {
+	box-shadow: none;
+}
+
+.comment-submit.on:hover {
+	box-shadow: none;
+}
+
+.comment-submit:active {
+	box-shadow: none;
+	background-color: var( --color-moetheme );
+}
+
+.comment-paginator {
+	border-top: 1px solid var( --border-color-base );
+}
+
+.comment-paginator span {
+	color: var( --color-base--subtle ) !important;
+}
+
+.comment-bannotice {
+	border-top: 1px solid var( --border-color-base );
+}
+

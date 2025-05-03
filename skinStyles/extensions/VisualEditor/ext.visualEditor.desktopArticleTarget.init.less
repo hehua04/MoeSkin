@@ -1,0 +1,153 @@
+/*
+ * MoeSkin
+ *
+ * SkinStyles for Extension:VisualEditor
+ * Module: ext.visualEditor.desktopArticleTarget.init
+ *
+*/
+
+.ve-activated {
+	/*
+	 * Hide various unnessecary elements when VE is active
+	 * - Edit buttons (as you can switch them in VE)
+	 * - ToC button (does nothing in VE)
+	*/
+	#ca-ve-edit,
+	#ca-edit,
+	.moeskin-toc__buttonCheckbox {
+		display: none;
+	}
+
+	// Body header should have a lower z-index than VE elements
+	.mw-body-header {
+		z-index: 1;
+	}
+}
+
+.ve-init-mw-desktopArticleTarget {
+	&-toolbar {
+		&.ve-ui-toolbar-floating > .oo-ui-toolbar-bar {
+			top: 54px;
+			padding-top: 3px;
+		}
+	}
+}
+
+.ve-init-mw-desktopArticleTarget-toolbarPlaceholder {
+	&-bar {
+		z-index: 2 !important;
+		transform: translateX( -2.9em ) !important;
+		background: var( --color-surface-1 );
+		border-bottom-color: var( --border-color-base );
+		box-shadow: none;
+	}
+
+	&-floating {
+		.ve-init-mw-desktopArticleTarget-toolbarPlaceholder-bar {
+			top: 54px;
+			background: var( --color-surface-1 );
+		}
+	}
+}
+
+.ve-init-mw-desktopArticleTarget-originalContent #catlinks {
+	&:hover {
+		background: var( --background-color-primary--hover ) !important;
+	}
+
+	&:active {
+		background: var( --background-color-primary--active ) !important;
+	}
+}
+
+// Reset .oo-ui-widget font size hack
+.ve-ui-surface.oo-ui-widget {
+	font-size: 0.968rem;
+}
+
+.ve-init-mw-tempWikitextEditorWidget {
+	background-color: var( --color-surface-0 ) !important;
+}
+
+// Make toolbar more smaller screen friendly
+// Well at least I did by best
+// 820px - @width-breakpoint-tablet
+@media ( max-width: 820px ) {
+	.ve-activated {
+		.mw-header {
+			z-index: 3;
+			background-color: transparent; // Because header is taller than toolbar
+		}
+	}
+
+	.ve-ui-toolbar {
+		> .oo-ui-toolbar-bar {
+			display: flex;
+		}
+
+		&-floating {
+			z-index: 4;
+		}
+	}
+
+	.ve-init-mw-desktopArticleTarget {
+		&-toolbar {
+			&.ve-ui-toolbar-floating > .oo-ui-toolbar-bar {
+				top: 0;
+				left: 0 !important;
+				right: 0 !important;
+			}
+
+			.ve-ui-toolbar-group {
+				// Hide some dropdown tools in smaller screen
+				// help - Help
+				&-help {
+					display: none;
+				}
+			}
+
+			// Shorten save button
+			// Use CSS magic to create an icon
+			// Will change if I figure out a way to load the icon only for VE
+			.ve-ui-toolbar-saveButton {
+				width: 60px !important;
+				height: 42px !important;
+				padding: 0 !important;
+
+				&:before {
+					top: 12px;
+					transform: rotate( -45deg );
+				}
+
+				&:after {
+					bottom: 12px;
+					transform: rotate( 45deg );
+				}
+
+				&:before,
+				&:after {
+					position: absolute;
+					left: 30px;
+					display: block;
+					width: 2px;
+					height: 11px;
+					background: #fff;
+					content: '';
+				}
+
+				.oo-ui-tool-title {
+					display: none !important;
+				}
+			}
+		}
+	}
+
+	.ve-ui-toolbar > .oo-ui-toolbar-bar > .oo-ui-toolbar-tools {
+		white-space: nowrap;
+		overflow-x: auto;
+	}
+
+	.ve-ui-surface.oo-ui-widget {
+		padding-right: 0;
+	}
+}

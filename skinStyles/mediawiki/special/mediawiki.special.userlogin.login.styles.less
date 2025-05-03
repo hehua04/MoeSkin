@@ -1,0 +1,209 @@
+/*
+ * MoeSkin - Login
+*/
+
+@import '../../../resources/variables.less';
+
+:root {
+	--color-primary: var( --color-moetheme ) !important;
+	--color-primary--hover: var( --color-moetheme--hover ) !important;
+	--color-primary--active: var( --color-moetheme--active ) !important;
+}
+
+html {
+	overflow-y: hidden !important;
+}
+
+.mw-header,
+#moeskin-global-sitenotice,
+#moeskin-global-toolbar,
+#moeskin-page-tools-container,
+.page-actions,
+#maomao,
+.mw-footer {
+	display: none !important;
+}
+
+.mw-body {
+	width: 300px;
+	opacity: 95% !important;
+	min-height: auto !important;
+	border-radius: 20px !important;
+}
+
+body:before {
+	display: none;
+}
+
+#moeskin-global-background {
+	top: 0 !important;
+	opacity: 30% !important;
+	background: url( ../../../resources/skins.moeskin.icons/Moegirl-wallpaper-fall-2019.png ) no-repeat center !important;
+}
+
+.mw-body-header {
+	border-bottom: none !important;
+	margin-bottom: 0 !important;
+}
+
+#userloginForm {
+	> .mw-htmlform > div {
+		// Allow to reorder the form through CSS
+		display: flex;
+		flex-direction: column;
+	}
+
+	// Message box
+	.mw-message-box {
+		order: -4;
+	}
+
+	// Username field
+	.loginText {
+		order: -3;
+	}
+
+	// Password field
+	.loginPassword {
+		order: -2;
+	}
+
+	// Forgot password field
+	// HACK: Move to the bottom of the password field
+	.mw-userlogin-help + .mw-form-related-link-container {
+		order: -1;
+		margin-top: -0.5rem;
+		font-size: 0.875rem;
+		text-align: end;
+	}
+
+	.mw-userlogin-rememberme {
+		font-size: 0.875rem;
+	}
+}
+
+#mw-createaccount-cta {
+	width: auto; // should align to the rest of the form
+	border-top: 1px solid var( --border-color-base );
+	margin-top: 1rem;
+	color: var( --color-base--emphasized );
+}
+
+#mw-createaccount-join {
+	background-color: var( --color-surface-2 );
+	color: var( --color-primary );
+
+	&:hover {
+		border-color: var( --color-primary );
+		background-color: var( --color-surface-2--hover );
+	}
+
+	&:active {
+		border-color: var( --color-primary );
+		background-color: var( --color-surface-2--active );
+		color: var( --color-primary );
+	}
+
+	&:focus {
+		border-color: var( --color-primary );
+		box-shadow: inset 0 0 0 1px var( --color-primary );
+	}
+}
+
+.mw-userlogin-help.mw-ui-vform-field {
+	order: -4;
+	margin: -8px auto 0.5em 1px;
+	text-align: left;
+}
+
+.mw-htmlform-field-HTMLTextField {
+	padding-top: 9px !important;
+
+	label {
+		display: none;
+	}
+}
+
+.mw-ui-vform-field a {
+	color: var( --color-base--subtle );
+}
+
+.mw-ui-button.mw-ui-progressive:not( :disabled ) {
+	border-color: var( --color-moetheme ) !important;
+	background-color: var( --color-moetheme ) !important;
+
+	&:hover {
+		border-color: var( --color-moetheme--hover ) !important;
+		background-color: var( --color-moetheme--hover ) !important;
+	}
+
+	&:active {
+		border-color: var( --color-moetheme--active ) !important;
+		background-color: var( --color-moetheme--active ) !important;
+	}
+}
+
+.mw-message-box {
+	position: absolute;
+	font-size: 90%;
+	margin-top: -0.4rem;
+	padding-top: 0 !important;
+	background-color: var( --color-surface-0 ) !important;
+	padding: 0 !important;
+
+	.mw-message-box-error& {
+		color: var( --color-text-error );
+	}
+
+	.mw-message-box-warning& {
+		color: var( --color-text-warning );
+	}
+}
+
+@media screen and ( max-width: @width-breakpoint-tablet ) {
+	.mw-body {
+		margin-left: auto !important;
+		margin-right: auto !important;
+		padding: 30px !important;
+		background: transparent !important;
+	}
+
+	#moeskin-global-background {
+		opacity: 7% !important;
+	}
+}
+
+@media screen and ( max-width: @width-breakpoint-desktop-wide ) {
+	.mw-body {
+		margin-left: auto !important;
+	}
+}
+
+@media screen and ( min-width: @width-breakpoint-desktop-wide ) {
+	.mw-body {
+		width: auto !important;
+		top: 11%;
+		height: 535px;
+	}
+
+	#userloginForm:before {
+		width: 835px;
+		height: 100%;
+		top: 0;
+		right: 0;
+		border-radius: 0 20px 20px 0;
+		content: '';
+		position: absolute;
+		display: block;
+		background: url( ../../../resources/skins.moeskin.icons/Moegirl-wallpaper-fall-2019.png );
+		background-size: cover;
+		background-position-x: 25%;
+	}
+
+	.skin-moeskin-dark {
+		#userloginForm:before {
+			opacity: 95%;
+		}
+	}
+
+}

@@ -1,0 +1,30 @@
+{{!
+	string form-action action attribute of the search form
+	string page-title page title of the search page
+	string msg-search search text label
+	string html-input raw HTML containing the input box of the search box
+	string html-random-href URL of Special:Random
+	string msg-randompage tooltip message for random page button
+}}
+<div class="moeskin-search moeskin-header__item mw-checkbox-hack-container">
+	<input
+		type="checkbox" 
+		id="moeskin-search__checkbox" 
+		class="mw-checkbox-hack-checkbox"
+		role="button"
+		aria-labelledby="moeskin-search__buttonCheckbox"
+		aria-haspopup="true">
+	<form action="{{form-action}}" role="search" id="searchform" class="moeskin-search__card mw-checkbox-hack-target" autocomplete="off">
+		<input type="hidden" name="title" value="{{page-title}}">
+		<label class="screen-reader-text" for="searchInput">{{msg-search}}</label>
+		<div class="moeskin-search__icon"></div>
+		<input type="search" name="search" placeholder="{{msg-moeskin-search-suggest}}" autocapitalize="sentences" accesskey="f" id="searchInput">
+		<a
+			class="moeskin-search__formButton moeskin-search__random"
+			href="{{html-random-href}}"
+			title="{{msg-randompage}}">
+			<span class="screen-reader-text">{{msg-random}}</span>
+		</a>
+	</form>
+	{{>Search__button}}
+</div>

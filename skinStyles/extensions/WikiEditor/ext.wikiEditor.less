@@ -1,0 +1,350 @@
+/*
+ * MoeSkin
+ *
+ * SkinStyles for Extension:WikiEditor
+ * Module: ext.wikiEditor
+ *
+*/
+
+/* jquery.wikiEditor.less */
+.wikiEditor-ui {
+	&-view {
+		border-color: var( --border-color-base ) !important;
+	}
+
+	&-top {
+		border-color: var( --border-color-base ) !important;
+		border-bottom-width: 2px !important;
+	}
+
+	&-right {
+		background: var( --color-surface-2 ) !important;
+	}
+}
+
+.wikiEditor-ui-controls {
+	background-color: var( --color-surface-1 );
+}
+
+.wikiEditor-ui-tabs {
+	border-top-color: var( --border-color-base );
+	border-left-color: var( --border-color-base );
+	background-color: var( --color-surface-1 );
+
+	div {
+		border-right-color: var( --border-color-base );
+		border-bottom-color: var( --border-color-base );
+		background-color: var( --color-surface-2 );
+
+		a {
+			color: var( --color-link );
+		}
+
+		&.current {
+			border-bottom-color: var( --color-surface-1 );
+			background-color: var( --color-surface-1 );
+
+			a {
+				color: var( --color-base );
+			}
+		}
+	}
+}
+
+.wikiEditor-ui-buttons {
+	border-top-color: var( --color-surface-1 );
+	background-color: var( --color-surface-1 );
+}
+
+.wikiEditor-ui-loading {
+	border-color: var( --border-color-base );
+	background: var( --color-surface-2 );
+}
+
+/* jquery.wikiEditor.toolbar.less */
+.wikiEditor-ui-toolbar {
+	.sections {
+		.section {
+			border-top-color: var( --border-color-base );
+		}
+	}
+
+	.tabs {
+		span.tab {
+			border-radius: var( --border-radius--small );
+			a {
+				color: var( --color-base );
+			}
+
+			a:visited {
+				color: var( --color-base );
+			}
+
+			a.current,
+			a.current:visited {
+				color: var( --color-base );
+			}
+
+			&:hover {
+				background-color: var( --background-color-quiet--hover );
+			}
+		}
+	}
+
+	.group {
+		border-right-color: var( --border-color-base );
+
+		.label {
+			color: var( --color-base--subtle );
+		}
+
+		.tool-select {
+			border-color: var( --border-color-base );
+			background-color: var( --color-surface-1 );
+
+			.label {
+				color: var( --color-base );
+			}
+
+			.options {
+				border-color: var( --border-color-base );
+				background-color: var( --color-surface-1 );
+
+				.option {
+					color: var( --color-base--emphasized );
+
+					&:hover {
+						background-color: var( --background-color-primary--hover );
+					}
+				}
+			}
+		}
+	}
+
+	.group-search {
+		border-left-color: var( --border-color-base );
+	}
+
+	.booklet {
+		> .index {
+			.wikiEditor-character-highlighted {
+				background-color: var( --background-color-primary--active );
+				color: var( --color-base--emphasized );
+			}
+		}
+	}
+
+	.page-table {
+		th {
+			color: var( --color-base--subtle );
+		}
+
+		td {
+			border-top-color: var( --border-color-base );
+			color: var( --color-base--emphasized );
+		}
+	}
+
+	.page-characters {
+		div {
+			span {
+				border-color: var( --border-color-base );
+				color: var( --color-base );
+
+				&:hover {
+					border-color: var( --border-color-base );
+					background-color: var( --background-color-quiet--hover );
+				}
+
+				&:active {
+					background-color: var( --background-color-quiet--active );
+				}
+			}
+
+			.wikiEditor-character-highlighted {
+				background-color: var( --background-color-primary--hover );
+				color: var( --color-base--emphasized );
+			}
+		}
+	}
+}
+
+.ui-widget {
+	table {
+		td.wikieditor-toolbar-table-preview-wrapper {
+			background: var( --color-surface-2 );
+		}
+
+		.wikieditor-toolbar-table-preview-frame {
+			background: var( --color-surface-0 );
+		}
+	}
+}
+
+/* jquery.wikiEditor.dialogs.config.less */
+.wikiEditor-template-dialog-fields {
+	.wikiEditor-template-dialog-field-wrapper {
+		border-bottom-color: var( --border-color-base );
+	}
+}
+
+.wikiEditor-toolbar-dialog .ui-dialog-buttonpane {
+	border-top: transparent !important;
+}
+
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus {
+	background: none;
+}
+
+/* jquery.wikiEditor.toolbar-wikimedia.less */
+/* stylelint-disable no-duplicate-selectors */
+.wikiEditor-ui-toolbar {
+	background-color: var( --color-surface-0 );
+	box-shadow: none; // boxshadow 1
+	z-index: auto;
+
+	/* Groups */
+	.group {
+		border-color: var( --border-color-base );
+		border: none;
+
+		.tool-select {
+			.menu .options {
+				box-shadow: 0 1px 3px rgba( 0, 0, 0, 0.03 ), 0 1px 2px rgba( 0, 0, 0, 0.06 ); // boxshadow 1
+
+				.option {
+					&:hover {
+						background-color: var( --background-color-quiet--hover );
+					}
+
+					&:active {
+						background-color: var( --background-color-quiet--active );
+					}
+				}
+			}
+		}
+	}
+
+	.booklet {
+		> .index {
+			> :hover {
+				background-color: var( --background-color-quiet--hover );
+			}
+
+			> :active {
+				background-color: var( --background-color-quiet--active );
+			}
+
+			> .current {
+				background-color: var( --background-color-primary--hover );
+				color: var( --color-primary );
+			}
+		}
+	}
+}
+
+.tool-button,
+.tool.oo-ui-buttonElement-frameless.oo-ui-iconElement > .oo-ui-buttonElement-button {
+	min-width: 36px;
+	min-height: 33px;
+	border-radius: var( --border-radius--small );
+	&:hover {
+		background-color: var( --background-color-quiet--hover );
+
+		> .oo-ui-iconElement-icon {
+			opacity: var( --opacity-icon-base--hover );
+		}
+	}
+
+	&.tool-active {
+		background-color: var( --background-color-primary--hover );
+	}
+}
+
+#wikiEditor-section-advanced .options {
+	z-index: 5;
+	width: 64px;
+}
+
+.mw-editform #wpTextbox1 {
+	width: 97.5%;
+}
+
+.mw-editform .editOptions {
+	background-color: var( --color-surface-0 );
+	border-radius: 0 0 12px 12px;
+}
+
+.mw-editform #wpTextbox1, .wikiEditor-ui .wikiEditor-ui-view {
+	background-color: var( --color-surface-0 );
+	border-radius: 12px 12px 0 0;
+	padding: 8px;
+	padding-top: 6px;
+}
+
+.tool.oo-ui-buttonElement-frameless.oo-ui-iconElement > .oo-ui-buttonElement-button > .oo-ui-iconElement-icon {
+	opacity: var( --opacity-icon-base );
+	margin-left: 1px;
+}
+
+.ext-WikiEditor-ResizingDragBar-ew {
+	background-color: var( --color-surface-1 ) !important;
+}
+
+.ext-WikiEditor-realtimepreview-ErrorLayout {
+	background-color: var( --color-surface-1 ) !important;
+}
+
+.ext-WikiEditor-ResizingDragBar-ns {
+	display: none !important;
+}
+
+.wikiEditor-ui textarea {
+	width: 98%;
+}
+
+.wikiEditor-toolbar-dialog {
+	.ui-dialog-buttonpane {
+		border-top-color: var( --border-color-base ) !important;
+	}
+
+	.wikieditor-toolbar-field-wrapper {
+		/* Input field label */
+		> label {
+			color: var( --color-base--subtle );
+			font-size: 0.8125rem;
+			letter-spacing: 0.05em;
+
+			~ input,
+			~ select {
+				margin-top: 0.25rem;
+			}
+		}
+
+		/* Checkbox text */
+		> input + label {
+			font-size: inherit;
+			letter-spacing: inherit;
+		}
+	}
+}
+
+#wpPreview, #wpDiff, #wpSummary {
+	background-color: var( --color-surface-1 );
+}
+
+@media ( max-width: 550px ) {
+	.ui-dialog.ui-widget-content {
+		width: 98% !important;
+	}
+}
+
+// Dark mode icons
+.skin-moeskin-dark {
+	.wikiEditor-ui-toolbar .tabs span.tab a:before {
+		filter: invert( 1 ) hue-rotate( 180deg );
+	}
+	.ext-WikiEditor-realtimepreview-button:hover {
+		background: var( --color-surface-3 );
+	}
+}
