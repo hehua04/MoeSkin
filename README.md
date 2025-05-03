@@ -1,6 +1,6 @@
 <div align="center">
 <h1>MoeSkin+</h1>
-<p>注意该皮肤制作完成于2022年，已完全过时，不再维护。</p>
+<p>注意该皮肤制作完成于2022年，适用于MW1.38左右版本，现已完全过时，不再维护。</p>
 <img src="image/1746253469852.jpg" width="60%" alt="home" />
 <img src="image/1746253469819.jpg" width="48%" alt="home" />
 <img src="image/1746253469832.jpg" width="48%" alt="home" />
