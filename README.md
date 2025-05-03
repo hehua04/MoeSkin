@@ -6,7 +6,7 @@
 <img src="image/1746253469832.jpg" width="48%" alt="home" />
 <img src="image/1746253469826.jpg" width="48%" alt="home" />
 <img src="image/1746253469845.jpg" width="48%" alt="home" />
-<img src="image/1746253469839.jpg" width="55%" alt="home" />
+<img src="image/1746253469839.jpg" width="48%" alt="home" />
 </div>
 
 ## 皮肤特色
